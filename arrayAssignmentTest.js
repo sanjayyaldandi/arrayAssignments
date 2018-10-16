@@ -28,7 +28,7 @@ for(let index in inputEven){
 let sumOfElements = lib.sumOfElements;
 
 let inputSum =          [[1],[2],[1,1],[2,2],[2,1],[1,2],[-1],[-2],[-1,-1],[-2,-2],[-2,-1],[-1,-2]];
-let expectedSumOutput = [[1],[2],[2],  [4],  [3],  [3],  [-1],[-2],[-2],   [-4],   [-3],   [-3]];
+let expectedSumOutput = [1,2,2,4,3,3,-1,-2,-2,-4,-3,-3];
 
 for(let index in inputSum){
   assert.deepEqual(sumOfElements(inputSum[index]),expectedSumOutput[index]);
@@ -49,8 +49,8 @@ for(let index in inputPrintReverse){
 
 let filterAlternatingElements = lib.filterAlternatingElements;
 
-assert.deepEqual(filterAlternatingElements([1,2,3,4]),[1,3]);
-assert.deepEqual(filterAlternatingElements([7,5,3,5,4,3]),[7,3,4]);
+assert.deepEqual(filterAlternatingElements([1,2,3,4]),"1,3");
+assert.deepEqual(filterAlternatingElements([7,5,3,5,4,3]),"7,3,4");
 
 //----------------------------------------------------------
 

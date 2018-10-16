@@ -31,13 +31,11 @@ const filterEvenNumbers = function(numbers){
 //--------------------------------------------------------
 
 const sumOfElements = function(numbers){
-  let sum = [];
   let addition = 0;
   for(let number of numbers){
     addition += number;
   }
-  sum.push(addition);
-  return sum;
+  return addition;
 }
 
 //--------------------------------------------------------
@@ -53,9 +51,11 @@ const printReverse = function(numbers){
 //--------------------------------------------------------
 
 const filterAlternatingElements = function(numbers){
-  let filteredNums = [];
+  let filteredNums = "";
+  let delimiter = "";
   for(let number=0;number<numbers.length;number+=2){
-    filteredNums.push(numbers[number]);
+    filteredNums += delimiter + numbers[number];
+    delimiter = ",";
   }
   return filteredNums;
 }
