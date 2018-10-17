@@ -12,7 +12,7 @@ const filterOddNumbers = function(numbers){
   return oddNumbers;
 }
 
-//-------------------------------------------------------
+//------------------------------------------------
 
 const isEven = function(number){
   return (number % 2 == 0);
@@ -28,29 +28,29 @@ const filterEvenNumbers = function(numbers){
   return evenNumbers;
 }
 
-//-------------------------------------------------------
+//------------------------------------------------
 
-const sumOfElements = function(numbers){
-  let addition = 0;
+const sum = function(numbers){
+  let answer = 0;
   for(let number of numbers){
-    addition += number;
+    answer += number;
   }
-  return addition;
+  return answer;
 }
 
-//-------------------------------------------------------
+//------------------------------------------------
 
-const printReverse = function(numbers){
-  let reversedArray = [];
+const reverseNumbers = function(numbers){
+  let reversedResult = [];
   for(let number of numbers){
-    reversedArray.unshift(number);
+    reversedResult.unshift(number);
   }
-  return reversedArray;
+  return reversedResult;
 }
 
-//-------------------------------------------------------
+//------------------------------------------------
 
-const filterAlternatingElements = function(numbers){
+const filterEverySecondNum = function(numbers){
   let filteredNums = "";
   let delimiter = "";
   for(let number=0;number<numbers.length;number+=2){
@@ -60,9 +60,9 @@ const filterAlternatingElements = function(numbers){
   return filteredNums;
 }
 
-//-------------------------------------------------------
+//------------------------------------------------
 
-const reverseFibo = function(givenNumber){
+const createReverseFibo = function(givenNumber){
   let reversedFiboSeries = [];
 
   let num1 = -1;
@@ -79,40 +79,71 @@ const reverseFibo = function(givenNumber){
   return reversedFiboSeries;
 }
 
-//-------------------------------------------------------
+//------------------------------------------------
 
-const greatestNum = function(numbers){
+const findGreatestNum = function(numbers){
 
   let greatestNumber = numbers[0];
 
-  for(let number=0;number<numbers.length;number++){
-    if(greatestNumber < numbers[number]){
-      greatestNumber = numbers[number];
+  for(let number of numbers){
+    if(greatestNumber < number){
+      greatestNumber = number;
     }
   }
   return greatestNumber;
 }
 
-//-------------------------------------------------------
+//------------------------------------------------
 
-const lowestNum = function(numbers){
+const findLowestNum = function(numbers){
+
   let lowestNumber = numbers[0];
 
-  for(let number=0;number<numbers.length;number++){
-    if(lowestNumber > numbers[number]){
-      lowestNumber = numbers[number];
+  for(let number of numbers) {
+    if(lowestNumber > number){
+      lowestNumber = number;
     }
   }
   return lowestNumber;
 }
 
-//-------------------------------------------------------
+//------------------------------------------------
+
+const calculateAverage = function(numbers){
+
+  let totalSum = 0;
+  let averageOfNum = null;
+
+  if(numbers.length > 0) {
+    for(let number of numbers){
+      totalSum += number;
+    }
+    averageOfNum = totalSum/numbers.length;
+  }
+  return averageOfNum;
+}
+
+//------------------------------------------------
+
+const mapLengthOfWords = function(words){
+
+  let lengthOfWords = [];
+
+  for(let word of words){
+    lengthOfWords.push(word.length);
+  }
+  return lengthOfWords;
+}
+
+//------------------------------------------------
 
 exports.filterOddNumbers = filterOddNumbers;
 exports.filterEvenNumbers = filterEvenNumbers;
-exports.sumOfElements = sumOfElements;
-exports.printReverse = printReverse;
-exports.filterAlternatingElements = filterAlternatingElements;
-exports.reverseFibo = reverseFibo;
-exports.greatestNum = greatestNum;
-exports.lowestNum = lowestNum;
+exports.sum = sum;
+exports.reverseNumbers = reverseNumbers;
+exports.filterEverySecondNum = filterEverySecondNum;
+exports.createReverseFibo = createReverseFibo;
+exports.findGreatestNum = findGreatestNum;
+exports.findLowestNum = findLowestNum;
+exports.calculateAverage = calculateAverage;
+exports.mapLengthOfWords = mapLengthOfWords;
