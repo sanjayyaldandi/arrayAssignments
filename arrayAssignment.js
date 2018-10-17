@@ -12,7 +12,7 @@ const filterOddNumbers = function(numbers){
   return oddNumbers;
 }
 
-//--------------------------------------------------------
+//-------------------------------------------------------
 
 const isEven = function(number){
   return (number % 2 == 0);
@@ -28,7 +28,7 @@ const filterEvenNumbers = function(numbers){
   return evenNumbers;
 }
 
-//--------------------------------------------------------
+//-------------------------------------------------------
 
 const sumOfElements = function(numbers){
   let addition = 0;
@@ -38,7 +38,7 @@ const sumOfElements = function(numbers){
   return addition;
 }
 
-//--------------------------------------------------------
+//-------------------------------------------------------
 
 const printReverse = function(numbers){
   let reversedArray = [];
@@ -48,7 +48,7 @@ const printReverse = function(numbers){
   return reversedArray;
 }
 
-//--------------------------------------------------------
+//-------------------------------------------------------
 
 const filterAlternatingElements = function(numbers){
   let filteredNums = "";
@@ -60,7 +60,7 @@ const filterAlternatingElements = function(numbers){
   return filteredNums;
 }
 
-//--------------------------------------------------------
+//-------------------------------------------------------
 
 const reverseFibo = function(givenNumber){
   let reversedFiboSeries = [];
@@ -79,7 +79,34 @@ const reverseFibo = function(givenNumber){
   return reversedFiboSeries;
 }
 
-//--------------------------------------------------------
+//-------------------------------------------------------
+
+const greatestNum = function(numbers){
+
+  let greatestNumber = numbers[0];
+
+  for(let number=0;number<numbers.length;number++){
+    if(greatestNumber < numbers[number]){
+      greatestNumber = numbers[number];
+    }
+  }
+  return greatestNumber;
+}
+
+//-------------------------------------------------------
+
+const lowestNum = function(numbers){
+  let lowestNumber = numbers[0];
+
+  for(let number=0;number<numbers.length;number++){
+    if(lowestNumber > numbers[number]){
+      lowestNumber = numbers[number];
+    }
+  }
+  return lowestNumber;
+}
+
+//-------------------------------------------------------
 
 exports.filterOddNumbers = filterOddNumbers;
 exports.filterEvenNumbers = filterEvenNumbers;
@@ -87,3 +114,5 @@ exports.sumOfElements = sumOfElements;
 exports.printReverse = printReverse;
 exports.filterAlternatingElements = filterAlternatingElements;
 exports.reverseFibo = reverseFibo;
+exports.greatestNum = greatestNum;
+exports.lowestNum = lowestNum;

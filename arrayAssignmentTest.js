@@ -9,7 +9,7 @@ let inputOdd = [[],[1],[2],[1,1],[2,2],[2,1],[1,2],[-1],[-2],[-1,-1],[-2,-2],[-2
 let expectedOddOutput = [[],[1],[],[1,1],[],[1],[1],[-1],[],[-1,-1],[],[-1],[-1]];
 
 for(let index in inputOdd){
-    assert.deepEqual(filterOddNumbers(inputOdd[index]),expectedOddOutput[index]);
+  assert.deepEqual(filterOddNumbers(inputOdd[index]),expectedOddOutput[index]);
 }
 
 //----------------------------------------------------------
@@ -61,3 +61,16 @@ assert.deepEqual(reverseFibo(8),[13,8,5,3,2,1,1,0])
 
 //----------------------------------------------------------
 
+let greatestNum = lib.greatestNum;
+
+assert.deepEqual(greatestNum([1,6,2,5,3,4]),"6")
+assert.deepEqual(greatestNum([1,26,3,5]),"26")
+
+//----------------------------------------------------------
+
+let lowestNum = lib.lowestNum;
+
+assert.deepEqual(lowestNum([1,2,3,4]),"1")
+assert.deepEqual(lowestNum([3,4,2,5,1]),"1")
+
+//----------------------------------------------------------
