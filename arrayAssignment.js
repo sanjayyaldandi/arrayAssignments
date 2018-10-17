@@ -3,32 +3,42 @@ const isOdd = function(number){
 }
 
 const filterOddNumbers = function(numbers){
-  let oddNumbers = [];
-  for(let number of numbers){
-    if( isOdd(number) ){
-      oddNumbers.push(number);
-    }
-  }
-  return oddNumbers;
+  return filterNumbers("odd",numbers);
 }
 
-//------------------------------------------------
 
 const isEven = function(number){
   return (number % 2 == 0);
 }
 
 const filterEvenNumbers = function(numbers){
-  let evenNumbers = [];
-  for(let number of numbers){
-    if( isEven(number) ){
-      evenNumbers.push(number);
-    }
-  }
-  return evenNumbers;
+  return filterNumbers("even",numbers);
 }
 
-//------------------------------------------------
+
+const filterNumbers = function(type,numbers){
+  if(type == "even"){
+    let evenNumbers = [];
+    for(let number of numbers){
+      if( isEven(number) ){
+        evenNumbers.push(number);
+      }
+    }
+    return evenNumbers;
+  }
+
+  if(type == "odd"){
+    let oddNumbers = [];
+    for(let number of numbers){
+      if( isOdd(number) ){
+        oddNumbers.push(number);
+      }
+    }
+    return oddNumbers;
+  }
+}
+
+//----------------------------------------------
 
 const sum = function(numbers){
   let answer = 0;
@@ -38,7 +48,7 @@ const sum = function(numbers){
   return answer;
 }
 
-//------------------------------------------------
+//----------------------------------------------
 
 const reverseNumbers = function(numbers){
   let reversedResult = [];
@@ -48,7 +58,7 @@ const reverseNumbers = function(numbers){
   return reversedResult;
 }
 
-//------------------------------------------------
+//----------------------------------------------
 
 const filterEverySecondNum = function(numbers){
   let filteredNums = "";
@@ -60,7 +70,7 @@ const filterEverySecondNum = function(numbers){
   return filteredNums;
 }
 
-//------------------------------------------------
+//----------------------------------------------
 
 const createReverseFibo = function(givenNumber){
   let reversedFiboSeries = [];
@@ -79,7 +89,7 @@ const createReverseFibo = function(givenNumber){
   return reversedFiboSeries;
 }
 
-//------------------------------------------------
+//----------------------------------------------
 
 const findGreatestNum = function(numbers){
 
@@ -93,7 +103,7 @@ const findGreatestNum = function(numbers){
   return greatestNumber;
 }
 
-//------------------------------------------------
+//----------------------------------------------
 
 const findLowestNum = function(numbers){
 
@@ -107,7 +117,7 @@ const findLowestNum = function(numbers){
   return lowestNumber;
 }
 
-//------------------------------------------------
+//----------------------------------------------
 
 const calculateAverage = function(numbers){
 
@@ -123,7 +133,7 @@ const calculateAverage = function(numbers){
   return averageOfNum;
 }
 
-//------------------------------------------------
+//----------------------------------------------
 
 const mapLengthOfWords = function(words){
 
@@ -135,7 +145,39 @@ const mapLengthOfWords = function(words){
   return lengthOfWords;
 }
 
-//------------------------------------------------
+//----------------------------------------------
+
+const isNumOdd = function(number){
+  return (number % 2 != 0);
+}
+
+const countOddNumbers = function(numbers){
+  let count = 0;
+  for(let number of numbers){
+    if( isNumOdd(number) ){
+      count++;
+    }
+  }
+  return count;
+}
+
+//----------------------------------------------
+
+const isNumEven = function(number){
+  return (number % 2 == 0);
+}
+
+const countEvenNumbers = function(numbers){
+  let count = 0;
+  for(let number of numbers){
+    if( isNumEven(number) ){
+      count++;
+    }
+  }
+  return count;
+}
+
+//----------------------------------------------
 
 exports.filterOddNumbers = filterOddNumbers;
 exports.filterEvenNumbers = filterEvenNumbers;
@@ -147,3 +189,5 @@ exports.findGreatestNum = findGreatestNum;
 exports.findLowestNum = findLowestNum;
 exports.calculateAverage = calculateAverage;
 exports.mapLengthOfWords = mapLengthOfWords;
+exports.countOddNumbers = countOddNumbers;
+exports.countEvenNumbers = countEvenNumbers;

@@ -190,7 +190,7 @@ assert.deepEqual(calculateAverage([5,4,6,2,3,12,54,23]),13.625);
 assert.deepEqual(calculateAverage([1.5,6.2,7.3]),5);
 assert.deepEqual(calculateAverage([1.1,2.2,3.3,9.1,4.9]),4.12);
 
-// negative values
+// negative elements
 assert.deepEqual(calculateAverage([-1,-2,-3]),-2);
 
 //------------------------------------------------
@@ -207,5 +207,67 @@ assert.deepEqual(mapLengthOfWords(["a"]),[1]);
 assert.deepEqual(mapLengthOfWords(["a","ab"]),[1,2]);
 assert.deepEqual(mapLengthOfWords(["a","ab","123"]),[1,2,3]);
 assert.deepEqual(mapLengthOfWords(["a","ab","123","ab12"]),[1,2,3,4]);
+
+//------------------------------------------------
+
+let countOddNumbers = lib.countOddNumbers;
+
+// no element
+assert.deepEqual(countOddNumbers([]),0);
+
+// one element
+assert.deepEqual(countOddNumbers([1]),1);
+assert.deepEqual(countOddNumbers([2]),0);
+
+// two or more elements
+assert.deepEqual(countOddNumbers([1,2]),1);
+assert.deepEqual(countOddNumbers([2,1]),1);
+assert.deepEqual(countOddNumbers([1,2,3]),2);
+assert.deepEqual(countOddNumbers([3,2,1]),2);
+assert.deepEqual(countOddNumbers([1,2,3,4]),2);
+assert.deepEqual(countOddNumbers([4,3,2,1]),2);
+
+// one negative
+assert.deepEqual(countOddNumbers([-1]),1);
+assert.deepEqual(countOddNumbers([-2]),0);
+
+// two or more negative elements
+assert.deepEqual(countOddNumbers([-1,-2]),1);
+assert.deepEqual(countOddNumbers([-2,-1]),1);
+assert.deepEqual(countOddNumbers([-1,-2,-3]),2);
+assert.deepEqual(countOddNumbers([-3,-2,-1]),2);
+assert.deepEqual(countOddNumbers([-1,-2,-3,-4]),2);
+assert.deepEqual(countOddNumbers([-4,-3,-2,-1]),2);
+
+//------------------------------------------------
+
+let countEvenNumbers = lib.countEvenNumbers;
+
+// no element
+assert.deepEqual(countEvenNumbers([]),0);
+
+// one element
+assert.deepEqual(countEvenNumbers([1]),0);
+assert.deepEqual(countEvenNumbers([2]),1);
+
+// two or more elements
+assert.deepEqual(countEvenNumbers([1,2]),1);
+assert.deepEqual(countEvenNumbers([2,1]),1);
+assert.deepEqual(countEvenNumbers([1,2,3]),1);
+assert.deepEqual(countEvenNumbers([3,2,1]),1);
+assert.deepEqual(countEvenNumbers([1,2,3,4]),2);
+assert.deepEqual(countEvenNumbers([4,3,2,1]),2);
+
+// one negative element
+assert.deepEqual(countEvenNumbers([-1]),0);
+assert.deepEqual(countEvenNumbers([-2]),1);
+
+// two or more negative elements
+assert.deepEqual(countEvenNumbers([-1,-2]),1);
+assert.deepEqual(countEvenNumbers([-2,-1]),1);
+assert.deepEqual(countEvenNumbers([-1,-2,-3]),1);
+assert.deepEqual(countEvenNumbers([-3,-2,-1]),1);
+assert.deepEqual(countEvenNumbers([-1,-2,-3,-4]),2);
+assert.deepEqual(countEvenNumbers([-4,-3,-2,-1]),2);
 
 //------------------------------------------------
