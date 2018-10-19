@@ -321,3 +321,16 @@ assert.deepEqual(countBelowThreshold([-1,-2],0),2)
 assert.deepEqual(countBelowThreshold([-1,-2,-3],-1),2)
 
 //------------------------------------------------
+
+let findIndexOfNumber = lib.findIndexOfNumber;
+
+// one element
+assert.deepEqual(findIndexOfNumber([1],1),0)
+
+// two or more elements
+assert.deepEqual(findIndexOfNumber([1,2],2),1)
+assert.deepEqual(findIndexOfNumber([3,1],3),0)
+assert.deepEqual(findIndexOfNumber([4,2,3],3),2)
+assert.deepEqual(findIndexOfNumber([2,3,1],3),1)
+
+//------------------------------------------------

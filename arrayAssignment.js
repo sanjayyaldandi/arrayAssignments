@@ -201,6 +201,18 @@ const countBelowThreshold = function(numbers,givenNumber){
 
 //----------------------------------------------
 
+const findIndexOfNumber = function(numbers,givenNumber){
+  let indexNumber = 0;
+  for(let number=numbers.length-1;number>=0;number--){
+    if(numbers[number] == givenNumber){
+      indexNumber = number;
+    }
+  }
+  return indexNumber;
+}
+
+//----------------------------------------------
+
 exports.filterOddNumbers = filterOddNumbers;
 exports.filterEvenNumbers = filterEvenNumbers;
 exports.sum = sum;
@@ -215,3 +227,4 @@ exports.countOddNumbers = countOddNumbers;
 exports.countEvenNumbers = countEvenNumbers;
 exports.countAboveThreshold = countAboveThreshold;
 exports.countBelowThreshold = countBelowThreshold;
+exports.findIndexOfNumber = findIndexOfNumber;
