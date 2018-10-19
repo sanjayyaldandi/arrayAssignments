@@ -275,62 +275,79 @@ assert.deepEqual(countEvenNumbers([-4,-3,-2,-1]),2);
 let countAboveThreshold = lib.countAboveThreshold;
 
 // one element 
-assert.deepEqual(countAboveThreshold([1],0),1)
-assert.deepEqual(countAboveThreshold([2],1),1)
+assert.deepEqual(countAboveThreshold([1],0),1);
+assert.deepEqual(countAboveThreshold([2],1),1);
 
 //two or more elements
-assert.deepEqual(countAboveThreshold([1,2],0),2)
-assert.deepEqual(countAboveThreshold([1,2],1),1)
-assert.deepEqual(countAboveThreshold([1,2,3],0),3)
-assert.deepEqual(countAboveThreshold([1,2,3],1),2)
-assert.deepEqual(countAboveThreshold([1,2,3,4],0),4)
-assert.deepEqual(countAboveThreshold([1,2,3,4],1),3)
+assert.deepEqual(countAboveThreshold([1,2],0),2);
+assert.deepEqual(countAboveThreshold([1,2],1),1);
+assert.deepEqual(countAboveThreshold([1,2,3],0),3);
+assert.deepEqual(countAboveThreshold([1,2,3],1),2);
+assert.deepEqual(countAboveThreshold([1,2,3,4],0),4);
+assert.deepEqual(countAboveThreshold([1,2,3,4],1),3);
 
 // one negative element
-assert.deepEqual(countAboveThreshold([-1],-2),1)
-assert.deepEqual(countAboveThreshold([0],-1),1)
+assert.deepEqual(countAboveThreshold([-1],-2),1);
+assert.deepEqual(countAboveThreshold([0],-1),1);
 
 //two or more negative elements
-assert.deepEqual(countAboveThreshold([-1,-2],-3),2)
-assert.deepEqual(countAboveThreshold([-2,-2],-3),2)
-assert.deepEqual(countAboveThreshold([-1,-2,3],-3),3)
-assert.deepEqual(countAboveThreshold([-1,2,0],-2),3)
+assert.deepEqual(countAboveThreshold([-1,-2],-3),2);
+assert.deepEqual(countAboveThreshold([-2,-2],-3),2);
+assert.deepEqual(countAboveThreshold([-1,-2,3],-3),3);
+assert.deepEqual(countAboveThreshold([-1,2,0],-2),3);
 
 //------------------------------------------------
 
 let countBelowThreshold = lib.countBelowThreshold;
 
 // one element
-assert.deepEqual(countBelowThreshold([1],0),0)
-assert.deepEqual(countBelowThreshold([1],2),1)
-assert.deepEqual(countBelowThreshold([1],1),0)
+assert.deepEqual(countBelowThreshold([1],0),0);
+assert.deepEqual(countBelowThreshold([1],2),1);
+assert.deepEqual(countBelowThreshold([1],1),0);
 
 // two or more elements
-assert.deepEqual(countBelowThreshold([1,2],3),2)
-assert.deepEqual(countBelowThreshold([1,2],2),1)
-assert.deepEqual(countBelowThreshold([1,2,3],4),3)
-assert.deepEqual(countBelowThreshold([1,2,3],1),0)
-assert.deepEqual(countBelowThreshold([1,2,3,4],3),2)
-assert.deepEqual(countBelowThreshold([1,2,3,4],2),1)
+assert.deepEqual(countBelowThreshold([1,2],3),2);
+assert.deepEqual(countBelowThreshold([1,2],2),1);
+assert.deepEqual(countBelowThreshold([1,2,3],4),3);
+assert.deepEqual(countBelowThreshold([1,2,3],1),0);
+assert.deepEqual(countBelowThreshold([1,2,3,4],3),2);
+assert.deepEqual(countBelowThreshold([1,2,3,4],2),1);
 
 // one negative element
-assert.deepEqual(countBelowThreshold([-1],0),1)
+assert.deepEqual(countBelowThreshold([-1],0),1);
 
 // two or more elements
-assert.deepEqual(countBelowThreshold([-1,-2],0),2)
-assert.deepEqual(countBelowThreshold([-1,-2,-3],-1),2)
+assert.deepEqual(countBelowThreshold([-1,-2],0),2);
+assert.deepEqual(countBelowThreshold([-1,-2,-3],-1),2);
 
 //------------------------------------------------
 
 let findIndexOfNumber = lib.findIndexOfNumber;
 
 // one element
-assert.deepEqual(findIndexOfNumber([1],1),0)
+assert.deepEqual(findIndexOfNumber([1],1),0);
 
 // two or more elements
-assert.deepEqual(findIndexOfNumber([1,2],2),1)
-assert.deepEqual(findIndexOfNumber([3,1],3),0)
-assert.deepEqual(findIndexOfNumber([4,2,3],3),2)
-assert.deepEqual(findIndexOfNumber([2,3,1],3),1)
+assert.deepEqual(findIndexOfNumber([1,2],2),1);
+assert.deepEqual(findIndexOfNumber([3,1],3),0);
+assert.deepEqual(findIndexOfNumber([4,2,3],3),2);
+assert.deepEqual(findIndexOfNumber([2,3,1],3),1);
+
+//------------------------------------------------
+
+reverseArray = lib.reverseArray;
+
+// no element
+assert.deepEqual(reverseArray([]),[]);
+
+// one element
+assert.deepEqual(reverseArray([1]),[1]);
+assert.deepEqual(reverseArray([2]),[2]);
+
+// two or more elements
+assert.deepEqual(reverseArray([1,2]),[2,1]);
+assert.deepEqual(reverseArray([2,1]),[1,2]);
+assert.deepEqual(reverseArray([3,2,1]),[1,2,3]);
+assert.deepEqual(reverseArray([1,2,3]),[3,2,1]);
 
 //------------------------------------------------

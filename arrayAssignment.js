@@ -213,6 +213,17 @@ const findIndexOfNumber = function(numbers,givenNumber){
 
 //----------------------------------------------
 
+const reverseArray = function(numbers){
+  let reversedResult = [];
+
+  for(let number=numbers.length-1;number>=0;number--){
+    reversedResult.push(numbers[number]);
+  }
+  return reversedResult;
+}
+
+//----------------------------------------------
+
 exports.filterOddNumbers = filterOddNumbers;
 exports.filterEvenNumbers = filterEvenNumbers;
 exports.sum = sum;
@@ -228,3 +239,4 @@ exports.countEvenNumbers = countEvenNumbers;
 exports.countAboveThreshold = countAboveThreshold;
 exports.countBelowThreshold = countBelowThreshold;
 exports.findIndexOfNumber = findIndexOfNumber;
+exports.reverseArray = reverseArray;
