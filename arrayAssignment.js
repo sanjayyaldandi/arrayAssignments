@@ -236,6 +236,18 @@ const isAscending = function(numbers){
 
 //----------------------------------------------
 
+const isDescending = function(numbers){
+  let checkDescending = true;
+  for(let number=0;number<numbers.length;number++){
+    if(numbers[number] < numbers[number+1]){
+      checkDescending = false;
+    }
+  }
+  return checkDescending;
+}
+
+//----------------------------------------------
+
 exports.filterOddNumbers = filterOddNumbers;
 exports.filterEvenNumbers = filterEvenNumbers;
 exports.sum = sum;
@@ -253,3 +265,4 @@ exports.countBelowThreshold = countBelowThreshold;
 exports.findIndexOfNumber = findIndexOfNumber;
 exports.reverseArray = reverseArray;
 exports.isAscending = isAscending;
+exports.isDescending = isDescending;

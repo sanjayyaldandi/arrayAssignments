@@ -368,3 +368,19 @@ assert.deepEqual(isAscending([3,2,1]),false);
 assert.deepEqual(isAscending([1,2,3]),true);
 
 //------------------------------------------------
+
+isDescending = lib.isDescending;
+// no element
+assert.deepEqual(isDescending([]),true);
+
+// one element
+assert.deepEqual(isDescending([1]),true);
+assert.deepEqual(isDescending([2]),true);
+
+// two or more elements
+assert.deepEqual(isDescending([1,2]),false);
+assert.deepEqual(isDescending([2,1]),true);
+assert.deepEqual(isDescending([3,2,1]),true);
+assert.deepEqual(isDescending([1,2,3]),false);
+
+//------------------------------------------------
