@@ -518,3 +518,11 @@ assert.deepEqual(rotateArray([1,2,3,4,5],2),[3,4,5,1,2])
 assert.deepEqual(rotateArray([1,2,3,4,5],4),[5,1,2,3,4])
 
 //------------------------------------------------
+
+createPartition = lib.createPartition;
+
+assert.deepEqual(createPartition([1,2,7,4,9,10,5],5),[[1,2,4,5],[7,9,10]]);
+assert.deepEqual(createPartition([1,2,3,4,5],3),[[1,2,3],[4,5]]);
+assert.deepEqual(createPartition([4,9,7,2,8,1],3),[[2,1],[4,9,7,8]]);
+
+//------------------------------------------------

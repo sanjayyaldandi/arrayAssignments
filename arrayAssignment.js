@@ -364,6 +364,24 @@ const rotateArray=function(numbers,givenNumber){
 
 //----------------------------------------------
 
+const createPartition = function(numbers,givenNumber){
+  let outputArray = [];
+  let lessThanNum = [];
+  let greaterThanNum = [];
+
+  for(let number of numbers){
+    if(givenNumber >= number){
+      lessThanNum.push(number);
+    } else {
+      greaterThanNum.push(number);
+    }
+  }
+  outputArray.push(lessThanNum,greaterThanNum);
+  return outputArray;
+}
+
+//----------------------------------------------
+
 exports.filterOddNumbers = filterOddNumbers;
 exports.filterEvenNumbers = filterEvenNumbers;
 exports.sum = sum;
@@ -390,3 +408,4 @@ exports.findDifference = findDifference;
 exports.checkSubset = checkSubset;
 exports.generateZip = generateZip;
 exports.rotateArray = rotateArray;
+exports.createPartition = createPartition;
