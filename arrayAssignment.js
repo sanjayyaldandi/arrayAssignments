@@ -323,11 +323,11 @@ const findDifference = function(numbers1,numbers2){
 
 //----------------------------------------------
 
-const checkSubset = function(numbers1,numbers2){
+const checkSubset = function(mainSet,subSet){
   let isSubset = true;
 
-  for(let number of numbers2){
-    if(!numbers1.includes(number)){
+  for(let number of subSet){
+    if(!mainSet.includes(number)){
       isSubset = false;
     }
   }
