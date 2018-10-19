@@ -274,6 +274,27 @@ const removeDuplicate = function(numbers){
 
 //----------------------------------------------
 
+const createUnionOfArrays = function(numbers1,numbers2){
+
+  let unionArray = [];
+  unionArray[0] = numbers1[0];
+
+  for(let number=0;number<numbers1.length;number++){
+    if(!unionArray.includes(numbers1[number])){
+      unionArray.push(numbers1[number]);
+    }
+  }
+
+  for(let digit=0;digit<numbers2.length;digit++){
+    if(!unionArray.includes(numbers2[digit])){
+      unionArray.push(numbers2[digit]);
+    }
+  }
+  return unionArray;
+}
+
+//----------------------------------------------
+
 exports.filterOddNumbers = filterOddNumbers;
 exports.filterEvenNumbers = filterEvenNumbers;
 exports.sum = sum;
@@ -294,3 +315,4 @@ exports.isAscending = isAscending;
 exports.isDescending = isDescending;
 exports.extractDigits = extractDigits;
 exports.removeDuplicate = removeDuplicate;
+exports.createUnionOfArrays = createUnionOfArrays;

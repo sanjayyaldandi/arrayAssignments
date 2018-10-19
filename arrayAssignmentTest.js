@@ -416,3 +416,19 @@ assert.deepEqual(removeDuplicate([4,3,4,1]),[4,3,1]);
 assert.deepEqual(removeDuplicate([1,3,3,3]),[1,3]);
 
 //------------------------------------------------
+
+createUnionOfArrays = lib.createUnionOfArrays;
+
+// one element
+assert.deepEqual(createUnionOfArrays([1],[1]),[1]);
+assert.deepEqual(createUnionOfArrays([1],[2]),[1,2]);
+assert.deepEqual(createUnionOfArrays([21],[17]),[21,17]);
+
+// two or more elements
+assert.deepEqual(createUnionOfArrays([1,2],[2,3]),[1,2,3]);
+assert.deepEqual(createUnionOfArrays([1,2,3],[2,3,4]),[1,2,3,4]);
+assert.deepEqual(createUnionOfArrays([1,2,2],[3]),[1,2,3]);
+assert.deepEqual(createUnionOfArrays([1,2,2],[3,3,4]),[1,2,3,4]);
+assert.deepEqual(createUnionOfArrays([1,2,2],[3,3,4]),[1,2,3,4]);
+
+//------------------------------------------------
