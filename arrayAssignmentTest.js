@@ -466,3 +466,23 @@ assert.deepEqual(findDifference([8,7,4,6],[2,3,6,7]),[8,4])
 assert.deepEqual(findDifference([1,2,3,4,5],[1,3,5,7]),[2,4])
 
 //------------------------------------------------
+
+checkSubset = lib.checkSubset;
+
+// one element
+assert.deepEqual(checkSubset([1],[1]),true);
+assert.deepEqual(checkSubset([2],[1]),false);
+
+// two or more elememts
+assert.deepEqual(checkSubset([1,2],[1]),true);
+assert.deepEqual(checkSubset([1,2],[3]),false);
+assert.deepEqual(checkSubset([1,2],[1,2]),true);
+assert.deepEqual(checkSubset([1,2],[2,1]),true);
+assert.deepEqual(checkSubset([1,2],[2,3]),false);
+assert.deepEqual(checkSubset([1,2,3],[1]),true);
+assert.deepEqual(checkSubset([1,2,3],[4]),false);
+assert.deepEqual(checkSubset([1,2,3],[1,2]),true);
+assert.deepEqual(checkSubset([1,2,3],[1,2,4]),false);
+assert.deepEqual(checkSubset([1,2,3],[1,2,3]),true);
+
+//------------------------------------------------
