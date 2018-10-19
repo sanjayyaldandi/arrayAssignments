@@ -432,3 +432,20 @@ assert.deepEqual(createUnionOfArrays([1,2,2],[3,3,4]),[1,2,3,4]);
 assert.deepEqual(createUnionOfArrays([1,2,2],[3,3,4]),[1,2,3,4]);
 
 //------------------------------------------------
+
+createIntersectOfArrays = lib.createIntersectOfArrays;
+
+// no element
+assert.deepEqual(createIntersectOfArrays([],[]),[]);
+
+// one element
+assert.deepEqual(createIntersectOfArrays([1],[3]),[]);
+assert.deepEqual(createIntersectOfArrays([4],[4]),[4]);
+
+// two or more elements
+assert.deepEqual(createIntersectOfArrays([1,2],[3,2]),[2]);
+assert.deepEqual(createIntersectOfArrays([1,2],[3,4]),[]);
+assert.deepEqual(createIntersectOfArrays([1,2,3],[2,3,4]),[2,3]);
+assert.deepEqual(createIntersectOfArrays([1,2,3],[5,6,4]),[]);
+
+//------------------------------------------------

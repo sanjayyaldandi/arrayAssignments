@@ -252,8 +252,8 @@ const extractDigits = function(number){
   let strinfOfNum = ""+number;
   let extractedDigits = [];
 
-  for(let digit=0;digit<strinfOfNum.length;digit++){
-    extractedDigits.push(+strinfOfNum[digit]);
+  for(let digit of strinfOfNum){
+    extractedDigits.push(+digit);
   }
   return extractedDigits;
 }
@@ -264,9 +264,9 @@ const removeDuplicate = function(numbers){
   let uniqueElements = [];
   uniqueElements[0] = numbers[0];
 
-  for(let number=1;number<numbers.length;number++){
-    if(!uniqueElements.includes(numbers[number])){
-      uniqueElements.push(numbers[number]);
+  for(let number of numbers){
+    if(!uniqueElements.includes(number)){
+      uniqueElements.push(number);
     }
   }
   return uniqueElements;
@@ -279,18 +279,33 @@ const createUnionOfArrays = function(numbers1,numbers2){
   let unionArray = [];
   unionArray[0] = numbers1[0];
 
-  for(let number=0;number<numbers1.length;number++){
-    if(!unionArray.includes(numbers1[number])){
-      unionArray.push(numbers1[number]);
+  for(let number of numbers1){
+    if(!unionArray.includes(number)){
+      unionArray.push(number);
     }
   }
 
-  for(let digit=0;digit<numbers2.length;digit++){
-    if(!unionArray.includes(numbers2[digit])){
-      unionArray.push(numbers2[digit]);
+  for(let digit of numbers2){
+    if(!unionArray.includes(digit)){
+      unionArray.push(digit);
     }
   }
   return unionArray;
+}
+
+//----------------------------------------------
+
+const createIntersectOfArrays = function(numbers1,numbers2){
+  intersectedArray = [];
+
+  for(let number=0;number<numbers1.length;number++){
+    for(let digit=0;digit<numbers2.length;digit++){
+      if(numbers1[number] == numbers2[digit]){
+        intersectedArray.push(numbers1[number])
+      }
+    }
+  }
+  return intersectedArray;
 }
 
 //----------------------------------------------
@@ -316,3 +331,4 @@ exports.isDescending = isDescending;
 exports.extractDigits = extractDigits;
 exports.removeDuplicate = removeDuplicate;
 exports.createUnionOfArrays = createUnionOfArrays;
+exports.createIntersectOfArrays = createIntersectOfArrays;
