@@ -1,42 +1,38 @@
-const isOdd = function(number){
-  return (number % 2 != 0);
+const isDivisible = function(number){
+  return (number % 2 == 0);
+}
+
+const filterNumbers = function(type,numbers){
+
+  let outputNumbers = [];
+
+  if(type == "even"){
+    for(let number of numbers){
+      if( isDivisible(number) ){
+        outputNumbers.push(number);
+      }
+    }
+    return outputNumbers;
+  }
+
+  if(type == "odd"){
+    for(let number of numbers){
+      if ( isDivisible(number) == false ){
+        outputNumbers.push(number);
+      }
+    }
+    return outputNumbers;
+  }
 }
 
 const filterOddNumbers = function(numbers){
   return filterNumbers("odd",numbers);
 }
 
-
-const isEven = function(number){
-  return (number % 2 == 0);
-}
-
 const filterEvenNumbers = function(numbers){
   return filterNumbers("even",numbers);
 }
 
-
-const filterNumbers = function(type,numbers){
-  if(type == "even"){
-    let evenNumbers = [];
-    for(let number of numbers){
-      if( isEven(number) ){
-        evenNumbers.push(number);
-      }
-    }
-    return evenNumbers;
-  }
-
-  if(type == "odd"){
-    let oddNumbers = [];
-    for(let number of numbers){
-      if( isOdd(number) ){
-        oddNumbers.push(number);
-      }
-    }
-    return oddNumbers;
-  }
-}
 
 //----------------------------------------------
 
@@ -51,9 +47,11 @@ const sum = function(numbers){
 //----------------------------------------------
 
 const reverseNumbers = function(numbers){
-  let reversedResult = [];
-  for(let number of numbers){
-    reversedResult.unshift(number);
+  let reversedResult = "";
+  let delimiter = "";
+  for(let number=numbers.length-1;number>=0;number--){
+    reversedResult += delimiter + numbers[number];
+    delimiter = ",";
   }
   return reversedResult;
 }
@@ -179,6 +177,30 @@ const countEvenNumbers = function(numbers){
 
 //----------------------------------------------
 
+const countAboveThreshold = function(numbers,givenNumber){
+  let count = 0;
+  for(let number of numbers){
+    if(number > givenNumber){
+      count++;
+    }
+  }
+  return count;
+}
+
+//----------------------------------------------
+
+const countBelowThreshold = function(numbers,givenNumber){
+  let count = 0;
+  for(let number of numbers){
+    if(number < givenNumber){
+      count++;
+    }
+  }
+  return count;
+}
+
+//----------------------------------------------
+
 exports.filterOddNumbers = filterOddNumbers;
 exports.filterEvenNumbers = filterEvenNumbers;
 exports.sum = sum;
@@ -191,3 +213,5 @@ exports.calculateAverage = calculateAverage;
 exports.mapLengthOfWords = mapLengthOfWords;
 exports.countOddNumbers = countOddNumbers;
 exports.countEvenNumbers = countEvenNumbers;
+exports.countAboveThreshold = countAboveThreshold;
+exports.countBelowThreshold = countBelowThreshold;
