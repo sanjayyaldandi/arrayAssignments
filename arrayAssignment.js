@@ -347,6 +347,23 @@ const generateZip = function(numbers1,numbers2){
 
 //----------------------------------------------
 
+const rotateArray=function(numbers,givenNumber){
+
+  let rotatedResult=[];
+
+  for (let number=givenNumber;number<numbers.length;number++){
+    rotatedResult.push(numbers[number])
+  }
+
+  for (let digit=0;digit<givenNumber;digit++){
+    rotatedResult.push(numbers[digit])
+  }
+
+  return rotatedResult;
+} 
+
+//----------------------------------------------
+
 exports.filterOddNumbers = filterOddNumbers;
 exports.filterEvenNumbers = filterEvenNumbers;
 exports.sum = sum;
@@ -372,3 +389,4 @@ exports.createIntersectOfArrays = createIntersectOfArrays;
 exports.findDifference = findDifference;
 exports.checkSubset = checkSubset;
 exports.generateZip = generateZip;
+exports.rotateArray = rotateArray;

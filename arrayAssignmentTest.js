@@ -503,3 +503,18 @@ assert.deepEqual(generateZip([1,2,3,4],[2,4]),[[1,2],[2,4]])
 assert.deepEqual(generateZip([1,2,3,4],[2,4,6]),[[1,2],[2,4],[3,6]])
 
 //------------------------------------------------
+
+rotateArray = lib.rotateArray;
+
+// one element
+assert.deepEqual(rotateArray([1],1),[1])
+
+// two or more elments
+assert.deepEqual(rotateArray([1,2],1),[2,1])
+assert.deepEqual(rotateArray([1,2],2),[1,2])
+assert.deepEqual(rotateArray([1,2,3],2),[3,1,2])
+assert.deepEqual(rotateArray([1,2,3],1),[2,3,1])
+assert.deepEqual(rotateArray([1,2,3,4,5],2),[3,4,5,1,2])
+assert.deepEqual(rotateArray([1,2,3,4,5],4),[5,1,2,3,4])
+
+//------------------------------------------------
