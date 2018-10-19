@@ -486,3 +486,20 @@ assert.deepEqual(checkSubset([1,2,3],[1,2,4]),false);
 assert.deepEqual(checkSubset([1,2,3],[1,2,3]),true);
 
 //------------------------------------------------
+
+generateZip = lib.generateZip;
+
+// one element
+assert.deepEqual(generateZip([1],[1]),[[1,1]]);
+assert.deepEqual(generateZip([1],[2]),[[1,2]]);
+
+// two or more elements
+assert.deepEqual(generateZip([1,2],[3,4]),[[1,3],[2,4]]);
+assert.deepEqual(generateZip([1,3],[2,4]),[[1,2],[3,4]]);
+assert.deepEqual(generateZip([1,3],[2]),[[1,2]]);
+assert.deepEqual(generateZip([1,2,3],[2,4,6]),[[1,2],[2,4],[3,6]])
+assert.deepEqual(generateZip([1,2,3],[2,4]),[[1,2],[2,4]])
+assert.deepEqual(generateZip([1,2,3,4],[2,4]),[[1,2],[2,4]])
+assert.deepEqual(generateZip([1,2,3,4],[2,4,6]),[[1,2],[2,4],[3,6]])
+
+//------------------------------------------------

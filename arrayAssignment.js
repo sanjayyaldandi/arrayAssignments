@@ -336,6 +336,17 @@ const checkSubset = function(mainSet,subSet){
 
 //----------------------------------------------
 
+const generateZip = function(numbers1,numbers2){
+  let zippedOutput = [];
+  length = Math.min(numbers1.length,numbers2.length)
+  for(let number=0;number<length;number++){
+    zippedOutput.push([numbers1[number],numbers2[number]]);
+  }
+  return zippedOutput;
+}
+
+//----------------------------------------------
+
 exports.filterOddNumbers = filterOddNumbers;
 exports.filterEvenNumbers = filterEvenNumbers;
 exports.sum = sum;
@@ -360,3 +371,4 @@ exports.createUnionOfArrays = createUnionOfArrays;
 exports.createIntersectOfArrays = createIntersectOfArrays;
 exports.findDifference = findDifference;
 exports.checkSubset = checkSubset;
+exports.generateZip = generateZip;
