@@ -398,3 +398,21 @@ assert.deepEqual(extractDigits(135),[1,3,5]);
 assert.deepEqual(extractDigits(3764),[3,7,6,4]);
 
 //------------------------------------------------
+
+removeDuplicate = lib.removeDuplicate;
+
+// one element
+assert.deepEqual(removeDuplicate([1]),[1]);
+assert.deepEqual(removeDuplicate([2]),[2]);
+
+// two or more elements
+assert.deepEqual(removeDuplicate([1,2]),[1,2]);
+assert.deepEqual(removeDuplicate([2,2]),[2]);
+assert.deepEqual(removeDuplicate([1,2,3]),[1,2,3]);
+assert.deepEqual(removeDuplicate([1,2,1]),[1,2]);
+assert.deepEqual(removeDuplicate([1,1,1]),[1]);
+assert.deepEqual(removeDuplicate([1,1,2]),[1,2]);
+assert.deepEqual(removeDuplicate([4,3,4,1]),[4,3,1]);
+assert.deepEqual(removeDuplicate([1,3,3,3]),[1,3]);
+
+//------------------------------------------------

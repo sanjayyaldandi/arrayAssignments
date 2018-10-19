@@ -260,6 +260,20 @@ const extractDigits = function(number){
 
 //----------------------------------------------
 
+const removeDuplicate = function(numbers){
+  let uniqueElements = [];
+  uniqueElements[0] = numbers[0];
+
+  for(let number=1;number<numbers.length;number++){
+    if(!uniqueElements.includes(numbers[number])){
+      uniqueElements.push(numbers[number]);
+    }
+  }
+  return uniqueElements;
+}
+
+//----------------------------------------------
+
 exports.filterOddNumbers = filterOddNumbers;
 exports.filterEvenNumbers = filterEvenNumbers;
 exports.sum = sum;
@@ -279,3 +293,4 @@ exports.reverseArray = reverseArray;
 exports.isAscending = isAscending;
 exports.isDescending = isDescending;
 exports.extractDigits = extractDigits;
+exports.removeDuplicate = removeDuplicate;
