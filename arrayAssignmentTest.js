@@ -351,3 +351,20 @@ assert.deepEqual(reverseArray([3,2,1]),[1,2,3]);
 assert.deepEqual(reverseArray([1,2,3]),[3,2,1]);
 
 //------------------------------------------------
+
+isAscending = lib.isAscending;
+
+// no element
+assert.deepEqual(isAscending([]),true);
+
+// one element
+assert.deepEqual(isAscending([1]),true);
+assert.deepEqual(isAscending([2]),true);
+
+// two or more elements
+assert.deepEqual(isAscending([1,2]),true);
+assert.deepEqual(isAscending([2,1]),false);
+assert.deepEqual(isAscending([3,2,1]),false);
+assert.deepEqual(isAscending([1,2,3]),true);
+
+//------------------------------------------------

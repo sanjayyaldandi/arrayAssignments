@@ -224,6 +224,18 @@ const reverseArray = function(numbers){
 
 //----------------------------------------------
 
+const isAscending = function(numbers){
+  let checkAscending = true;
+  for(let number=0;number<numbers.length;number++){
+    if(numbers[number] > numbers[number+1]){
+      checkAscending = false;
+    }
+  }
+  return checkAscending;
+}
+
+//----------------------------------------------
+
 exports.filterOddNumbers = filterOddNumbers;
 exports.filterEvenNumbers = filterEvenNumbers;
 exports.sum = sum;
@@ -240,3 +252,4 @@ exports.countAboveThreshold = countAboveThreshold;
 exports.countBelowThreshold = countBelowThreshold;
 exports.findIndexOfNumber = findIndexOfNumber;
 exports.reverseArray = reverseArray;
+exports.isAscending = isAscending;
