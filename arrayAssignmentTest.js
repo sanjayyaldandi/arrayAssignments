@@ -449,3 +449,20 @@ assert.deepEqual(createIntersectOfArrays([1,2,3],[2,3,4]),[2,3]);
 assert.deepEqual(createIntersectOfArrays([1,2,3],[5,6,4]),[]);
 
 //------------------------------------------------
+
+findDifference = lib.findDifference;
+
+// one element
+assert.deepEqual(findDifference([1],[3]),[1])
+
+// two or more elements
+assert.deepEqual(findDifference([1,2],[1,2]),[])
+assert.deepEqual(findDifference([1,2],[1,3]),[2])
+assert.deepEqual(findDifference([1,2],[2,3]),[1])
+assert.deepEqual(findDifference([1,2,3],[1,2,3]),[])
+assert.deepEqual(findDifference([1,2,3],[3,1,2]),[])
+assert.deepEqual(findDifference([4,2,3],[1,3,2]),[4])
+assert.deepEqual(findDifference([8,7,4,6],[2,3,6,7]),[8,4])
+assert.deepEqual(findDifference([1,2,3,4,5],[1,3,5,7]),[2,4])
+
+//------------------------------------------------

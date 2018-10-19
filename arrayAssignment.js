@@ -310,6 +310,19 @@ const createIntersectOfArrays = function(numbers1,numbers2){
 
 //----------------------------------------------
 
+const findDifference = function(numbers1,numbers2){
+  let uniqueElement = [];
+
+  for(let number of numbers1){
+      if(!numbers2.includes(number) && !uniqueElement.includes(number)){
+        uniqueElement.push(number);
+    }
+  }
+  return uniqueElement;
+}
+
+//----------------------------------------------
+
 exports.filterOddNumbers = filterOddNumbers;
 exports.filterEvenNumbers = filterEvenNumbers;
 exports.sum = sum;
@@ -332,3 +345,4 @@ exports.extractDigits = extractDigits;
 exports.removeDuplicate = removeDuplicate;
 exports.createUnionOfArrays = createUnionOfArrays;
 exports.createIntersectOfArrays = createIntersectOfArrays;
+exports.findDifference = findDifference;
