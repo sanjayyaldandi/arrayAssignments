@@ -384,3 +384,17 @@ assert.deepEqual(isDescending([3,2,1]),true);
 assert.deepEqual(isDescending([1,2,3]),false);
 
 //------------------------------------------------
+
+extractDigits = lib.extractDigits;
+
+// one element
+assert.deepEqual(extractDigits(1),[1]);
+
+// two or more elements
+assert.deepEqual(extractDigits(12),[1,2]);
+assert.deepEqual(extractDigits(23),[2,3]);
+assert.deepEqual(extractDigits(246),[2,4,6]);
+assert.deepEqual(extractDigits(135),[1,3,5]);
+assert.deepEqual(extractDigits(3764),[3,7,6,4]);
+
+//------------------------------------------------

@@ -248,6 +248,18 @@ const isDescending = function(numbers){
 
 //----------------------------------------------
 
+const extractDigits = function(number){
+  let strinfOfNum = ""+number;
+  let extractedDigits = [];
+
+  for(let digit=0;digit<strinfOfNum.length;digit++){
+    extractedDigits.push(+strinfOfNum[digit]);
+  }
+  return extractedDigits;
+}
+
+//----------------------------------------------
+
 exports.filterOddNumbers = filterOddNumbers;
 exports.filterEvenNumbers = filterEvenNumbers;
 exports.sum = sum;
@@ -266,3 +278,4 @@ exports.findIndexOfNumber = findIndexOfNumber;
 exports.reverseArray = reverseArray;
 exports.isAscending = isAscending;
 exports.isDescending = isDescending;
+exports.extractDigits = extractDigits;
