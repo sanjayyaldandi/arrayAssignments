@@ -1,40 +1,34 @@
-const isDivisible = function(number){
+const isEven = function(number){
   return (number % 2 == 0);
 }
 
-const filterNumbers = function(type,numbers){
-
-  let outputNumbers = [];
-
-  if(type == "even"){
-    for(let number of numbers){
-      if( isDivisible(number) ){
-        outputNumbers.push(number);
-      }
-    }
-    return outputNumbers;
-  }
-
-  if(type == "odd"){
-    for(let number of numbers){
-      if ( isDivisible(number) == false ){
-        outputNumbers.push(number);
-      }
-    }
-    return outputNumbers;
-  }
-}
+//(1)---------------------------------------------
 
 const filterOddNumbers = function(numbers){
-  return filterNumbers("odd",numbers);
+  let oddNumbers = [];
+  for(let number of numbers){
+    if( !isEven(number) ){
+      oddNumbers.push(number);
+    }
+  }
+  return oddNumbers;
 }
+exports.filterOddNumbers = filterOddNumbers;
+
+//(2)------------------------------------------------
 
 const filterEvenNumbers = function(numbers){
-  return filterNumbers("even",numbers);
+  let evenNumbers = [];
+  for(let number of numbers){
+    if( isEven(number) ){
+      evenNumbers.push(number);
+    }
+  }
+  return evenNumbers;
 }
+exports.filterEvenNumbers = filterEvenNumbers;
 
-
-//----------------------------------------------
+//(3)------------------------------------------------
 
 const sum = function(numbers){
   let answer = 0;
@@ -43,8 +37,9 @@ const sum = function(numbers){
   }
   return answer;
 }
+exports.sum = sum;
 
-//----------------------------------------------
+//(4)----------------------------------------------
 
 const reverseNumbers = function(numbers){
   let reversedResult = "";
@@ -55,8 +50,9 @@ const reverseNumbers = function(numbers){
   }
   return reversedResult;
 }
+exports.reverseNumbers = reverseNumbers;
 
-//----------------------------------------------
+//(5)----------------------------------------------
 
 const filterEverySecondNum = function(numbers){
   let filteredNums = "";
@@ -67,16 +63,15 @@ const filterEverySecondNum = function(numbers){
   }
   return filteredNums;
 }
+exports.filterEverySecondNum = filterEverySecondNum;
 
-//----------------------------------------------
+//(6)----------------------------------------------
 
 const createReverseFibo = function(givenNumber){
   let reversedFiboSeries = [];
-
   let num1 = -1;
   let num2 = 1;
   let sum = 0;
-
   for(let number=0;number<givenNumber;number++){
     sum = num1 + num2;
     num1 = num2;
@@ -86,13 +81,12 @@ const createReverseFibo = function(givenNumber){
   }
   return reversedFiboSeries;
 }
+exports.createReverseFibo = createReverseFibo;
 
-//----------------------------------------------
+//(7)----------------------------------------------
 
 const findGreatestNum = function(numbers){
-
   let greatestNumber = numbers[0];
-
   for(let number of numbers){
     if(greatestNumber < number){
       greatestNumber = number;
@@ -100,13 +94,12 @@ const findGreatestNum = function(numbers){
   }
   return greatestNumber;
 }
+exports.findGreatestNum = findGreatestNum;
 
-//----------------------------------------------
+//(8)----------------------------------------------
 
 const findLowestNum = function(numbers){
-
   let lowestNumber = numbers[0];
-
   for(let number of numbers) {
     if(lowestNumber > number){
       lowestNumber = number;
@@ -114,14 +107,13 @@ const findLowestNum = function(numbers){
   }
   return lowestNumber;
 }
+exports.findLowestNum = findLowestNum;
 
-//----------------------------------------------
+//(9)----------------------------------------------
 
 const calculateAverage = function(numbers){
-
   let totalSum = 0;
   let averageOfNum = null;
-
   if(numbers.length > 0) {
     for(let number of numbers){
       totalSum += number;
@@ -130,52 +122,46 @@ const calculateAverage = function(numbers){
   }
   return averageOfNum;
 }
+exports.calculateAverage = calculateAverage;
 
-//----------------------------------------------
+//(10)----------------------------------------------
 
 const mapLengthOfWords = function(words){
-
   let lengthOfWords = [];
-
   for(let word of words){
     lengthOfWords.push(word.length);
   }
   return lengthOfWords;
 }
+exports.mapLengthOfWords = mapLengthOfWords;
 
-//----------------------------------------------
-
-const isNumOdd = function(number){
-  return (number % 2 != 0);
-}
+//(11)----------------------------------------------
 
 const countOddNumbers = function(numbers){
   let count = 0;
   for(let number of numbers){
-    if( isNumOdd(number) ){
+    if( !isEven(number) ){
       count++;
     }
   }
   return count;
 }
+exports.countOddNumbers = countOddNumbers;
 
-//----------------------------------------------
-
-const isNumEven = function(number){
-  return (number % 2 == 0);
-}
+//(12)----------------------------------------------
 
 const countEvenNumbers = function(numbers){
   let count = 0;
   for(let number of numbers){
-    if( isNumEven(number) ){
+    if( isEven(number) ){
       count++;
     }
   }
   return count;
 }
+exports.countEvenNumbers = countEvenNumbers;
 
-//----------------------------------------------
+//(13)----------------------------------------------
 
 const countAboveThreshold = function(numbers,givenNumber){
   let count = 0;
@@ -186,8 +172,9 @@ const countAboveThreshold = function(numbers,givenNumber){
   }
   return count;
 }
+exports.countAboveThreshold = countAboveThreshold;
 
-//----------------------------------------------
+//(14)----------------------------------------------
 
 const countBelowThreshold = function(numbers,givenNumber){
   let count = 0;
@@ -198,72 +185,71 @@ const countBelowThreshold = function(numbers,givenNumber){
   }
   return count;
 }
+exports.countBelowThreshold = countBelowThreshold;
 
-//----------------------------------------------
+//(15)----------------------------------------------
 
 const findIndexOfNumber = function(numbers,givenNumber){
-  let indexNumber = 0;
-  for(let number=numbers.length-1;number>=0;number--){
+  for(let number=0;number<numbers.length-1;number++){
     if(numbers[number] == givenNumber){
-      indexNumber = number;
+      return number;
     }
   }
-  return indexNumber;
 }
+exports.findIndexOfNumber = findIndexOfNumber;
 
-//----------------------------------------------
+//(16)----------------------------------------------
 
 const reverseArray = function(numbers){
   let reversedResult = [];
-
   for(let number=numbers.length-1;number>=0;number--){
     reversedResult.push(numbers[number]);
   }
   return reversedResult;
 }
+exports.reverseArray = reverseArray;
 
-//----------------------------------------------
+//(17)----------------------------------------------
 
 const isAscending = function(numbers){
-  let checkAscending = true;
   for(let number=0;number<numbers.length;number++){
     if(numbers[number] > numbers[number+1]){
-      checkAscending = false;
+      return false;
     }
   }
-  return checkAscending;
+  return true;
 }
+exports.isAscending = isAscending;
 
-//----------------------------------------------
+//(18)----------------------------------------------
 
 const isDescending = function(numbers){
-  let checkDescending = true;
   for(let number=0;number<numbers.length;number++){
     if(numbers[number] < numbers[number+1]){
-      checkDescending = false;
+      return false;
     }
   }
-  return checkDescending;
+  return true;
 }
+exports.isDescending = isDescending;
 
-//----------------------------------------------
+//(19)----------------------------------------------
 
 const extractDigits = function(number){
   let strinfOfNum = ""+number;
   let extractedDigits = [];
-
   for(let digit of strinfOfNum){
     extractedDigits.push(+digit);
   }
   return extractedDigits;
 }
+exports.extractDigits = extractDigits;
 
-//----------------------------------------------
+//(20)----------------------------------------------
 
 const removeDuplicate = function(numbers){
   let uniqueElements = [];
-  uniqueElements[0] = numbers[0];
-
+  uniqueElements.push(numbers[0]);
   for(let number of numbers){
     if(!uniqueElements.includes(number)){
       uniqueElements.push(number);
@@ -271,104 +257,93 @@ const removeDuplicate = function(numbers){
   }
   return uniqueElements;
 }
+exports.removeDuplicate = removeDuplicate;
 
-//----------------------------------------------
+//(21)----------------------------------------------
 
 const createUnionOfArrays = function(numbers1,numbers2){
-
   let unionArray = [];
-  unionArray[0] = numbers1[0];
-
-  for(let number of numbers1){
-    if(!unionArray.includes(number)){
+  unionArray.push(numbers1[0]);
+  for(let number=0;number<numbers1.length;number++){
+    if(!unionArray.includes(numbers1[number]) && !unionArray.includes(numbers2[number])){
       unionArray.push(number);
-    }
-  }
-
-  for(let digit of numbers2){
-    if(!unionArray.includes(digit)){
-      unionArray.push(digit);
     }
   }
   return unionArray;
 }
+exports.createUnionOfArrays = createUnionOfArrays;
 
-//----------------------------------------------
+//(22)----------------------------------------------
 
 const createIntersectOfArrays = function(numbers1,numbers2){
-  intersectedArray = [];
-
-  for(let number=0;number<numbers1.length;number++){
-    for(let digit=0;digit<numbers2.length;digit++){
-      if(numbers1[number] == numbers2[digit]){
-        intersectedArray.push(numbers1[number])
-      }
+  let intersectedArray = [];
+  for(let number of numbers1){
+    if(numbers1.includes(number) && numbers2.includes(number)){
+      intersectedArray.push(number)
     }
   }
   return intersectedArray;
 }
+exports.createIntersectOfArrays = createIntersectOfArrays;
 
-//----------------------------------------------
+//(23)----------------------------------------------
 
 const findDifference = function(numbers1,numbers2){
   let uniqueElement = [];
-
   for(let number of numbers1){
-      if(!numbers2.includes(number) && !uniqueElement.includes(number)){
-        uniqueElement.push(number);
+    if(!numbers2.includes(number) && !uniqueElement.includes(number)){
+      uniqueElement.push(number);
     }
   }
   return uniqueElement;
 }
+exports.findDifference = findDifference;
 
-//----------------------------------------------
+//(24)----------------------------------------------
 
-const checkSubset = function(mainSet,subSet){
-  let isSubset = true;
-
+const isSubset = function(mainSet,subSet){
   for(let number of subSet){
     if(!mainSet.includes(number)){
-      isSubset = false;
+      return false;
     }
   }
-  return isSubset;
+  return true;
 }
+exports.isSubset = isSubset;
 
-//----------------------------------------------
+//(25)----------------------------------------------
 
 const generateZip = function(numbers1,numbers2){
   let zippedOutput = [];
   length = Math.min(numbers1.length,numbers2.length)
+
   for(let number=0;number<length;number++){
     zippedOutput.push([numbers1[number],numbers2[number]]);
   }
   return zippedOutput;
 }
+exports.generateZip = generateZip;
 
-//----------------------------------------------
+//(26)----------------------------------------------
 
 const rotateArray=function(numbers,givenNumber){
-
   let rotatedResult=[];
-
   for (let number=givenNumber;number<numbers.length;number++){
     rotatedResult.push(numbers[number])
   }
-
-  for (let digit=0;digit<givenNumber;digit++){
-    rotatedResult.push(numbers[digit])
+  for (let number=0;number<givenNumber;number++){
+    rotatedResult.push(numbers[number])
   }
-
   return rotatedResult;
 } 
+exports.rotateArray = rotateArray;
 
-//----------------------------------------------
+//(27)----------------------------------------------
 
 const createPartition = function(numbers,givenNumber){
   let outputArray = [];
   let lessThanNum = [];
   let greaterThanNum = [];
-
   for(let number of numbers){
     if(givenNumber >= number){
       lessThanNum.push(number);
@@ -379,33 +354,6 @@ const createPartition = function(numbers,givenNumber){
   outputArray.push(lessThanNum,greaterThanNum);
   return outputArray;
 }
+exports.createPartition = createPartition;
 
 //----------------------------------------------
-
-exports.filterOddNumbers = filterOddNumbers;
-exports.filterEvenNumbers = filterEvenNumbers;
-exports.sum = sum;
-exports.reverseNumbers = reverseNumbers;
-exports.filterEverySecondNum = filterEverySecondNum;
-exports.createReverseFibo = createReverseFibo;
-exports.findGreatestNum = findGreatestNum;
-exports.findLowestNum = findLowestNum;
-exports.calculateAverage = calculateAverage;
-exports.mapLengthOfWords = mapLengthOfWords;
-exports.countOddNumbers = countOddNumbers;
-exports.countEvenNumbers = countEvenNumbers;
-exports.countAboveThreshold = countAboveThreshold;
-exports.countBelowThreshold = countBelowThreshold;
-exports.findIndexOfNumber = findIndexOfNumber;
-exports.reverseArray = reverseArray;
-exports.isAscending = isAscending;
-exports.isDescending = isDescending;
-exports.extractDigits = extractDigits;
-exports.removeDuplicate = removeDuplicate;
-exports.createUnionOfArrays = createUnionOfArrays;
-exports.createIntersectOfArrays = createIntersectOfArrays;
-exports.findDifference = findDifference;
-exports.checkSubset = checkSubset;
-exports.generateZip = generateZip;
-exports.rotateArray = rotateArray;
-exports.createPartition = createPartition;
