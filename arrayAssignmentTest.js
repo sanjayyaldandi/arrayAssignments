@@ -119,7 +119,6 @@ assert.deepEqual(reverseNumbers([1,2,3,4]),"4,3,2,1");
 
 let filterEverySecondNum = lib.filterEverySecondNum;
 
-assert.deepEqual(filterEverySecondNum([]),"");
 assert.deepEqual(filterEverySecondNum([1]),"1");
 assert.deepEqual(filterEverySecondNum([1,2]),"1");
 assert.deepEqual(filterEverySecondNum([1,2,3]),"1,3");
