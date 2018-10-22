@@ -2,13 +2,13 @@ const isEven = function(number){
   return (number % 2 == 0);
 }
 
-//-----------------------------------------------
+//--------------------------------------------------
 
 const isOdd = function(number){
   return (number % 2 != 0);
 }
 
-//(1)---------------------------------------------
+//(1)-----------------------------------------------
 
 const filterOddNumbers = function(numbers){
   return numbers.filter(isOdd);
@@ -33,14 +33,14 @@ const sumOfElements = function(numbers){
 }
 exports.sumOfElements = sumOfElements;
 
-//(4)----------------------------------------------
+//(4)--------------------------------------------------
 
 const reverseNumbers = function(numbers){
   return numbers.reverse().join();
 }
 exports.reverseNumbers = reverseNumbers;
 
-//(5)----------------------------------------------
+//(5)-------------------------------------------------
 
 const filterEverySecondNum = function(numbers){
   let filteredNums = "";
@@ -53,7 +53,7 @@ const filterEverySecondNum = function(numbers){
 }
 exports.filterEverySecondNum = filterEverySecondNum;
 
-//(6)----------------------------------------------
+//(6)-------------------------------------------------
 
 const createReverseFibo = function(givenNumber){
   let reversedFiboSeries = [];
@@ -64,35 +64,34 @@ const createReverseFibo = function(givenNumber){
     sum = num1 + num2;
     num1 = num2;
     num2 = sum;
-
     reversedFiboSeries.unshift(sum);
   }
   return reversedFiboSeries;
 }
 exports.createReverseFibo = createReverseFibo;
 
-//(7)----------------------------------------------
+//(7)-------------------------------------------------
 
-const findGreatest = function(num1,num2){
+const isGreater = function(num1,num2){
   return Math.max(num1,num2);
 }
 
 const findGreatestNum = function(numbers){
-  return numbers.reduce(findGreatest);
+  return numbers.reduce(isGreater);
 }
 exports.findGreatestNum = findGreatestNum;
 
-//(8)----------------------------------------------
+//(8)-------------------------------------------------
 
-const findLowest = function(num1,num2){
+const isLower = function(num1,num2){
   return Math.min(num1,num2);
 }
 const findLowestNum = function(numbers){
-  return numbers.reduce(findLowest);
+  return numbers.reduce(isLower);
 }
 exports.findLowestNum = findLowestNum;
 
-//(9)----------------------------------------------
+//(9)-------------------------------------------------
 
 const calculateAverage = function(numbers){
   answer = numbers.reduce(sum);
@@ -100,7 +99,7 @@ const calculateAverage = function(numbers){
 }
 exports.calculateAverage = calculateAverage;
 
-//(10)----------------------------------------------
+//(10)------------------------------------------------
 
 const findLength = function(word){
   return word.length;
@@ -111,51 +110,51 @@ const mapLengthOfWords = function(words){
 }
 exports.mapLengthOfWords = mapLengthOfWords;
 
-//(11)----------------------------------------------
+//(11)------------------------------------------------
 
 const countOddNumbers = function(numbers){
   return filterOddNumbers(numbers).length;
 }
 exports.countOddNumbers = countOddNumbers;
 
-//(12)----------------------------------------------
+//(12)------------------------------------------------
 
 const countEvenNumbers = function(numbers){
   return filterEvenNumbers(numbers).length;
 }
 exports.countEvenNumbers = countEvenNumbers;
 
-//(13)----------------------------------------------
+//(13)------------------------------------------------
 
-const findAboveThreshold = function(givenNumber){
-  let greater = function(number){
-    return number > givenNumber;
+const findAboveThreshold = function(limit){
+  let isGreater = function(number){
+    return number > limit;
   }
-  return greater;
+  return isGreater;
 }
 
-const countAboveThreshold = function(numbers,givenNumber){
-  let threshold = findAboveThreshold(givenNumber);
+const countAboveThreshold = function(numbers,limit){
+  let threshold = findAboveThreshold(limit);
   return numbers.filter(threshold).length;
 }
 exports.countAboveThreshold = countAboveThreshold;
 
-//(14)----------------------------------------------
+//(14)------------------------------------------------
 
-const findBelowThreshold = function(givenNumber){
-  let lessThan = function(number){
-    return number < givenNumber;
+const findBelowThreshold = function(limit){
+  let isLower = function(number){
+    return number < limit;
   }
-  return lessThan;
+  return isLower;
 }
 
-const countBelowThreshold = function(numbers,givenNumber){
-  let threshold = findBelowThreshold(givenNumber);
+const countBelowThreshold = function(numbers,limit){
+  let threshold = findBelowThreshold(limit);
   return numbers.filter(threshold).length;
 }
 exports.countBelowThreshold = countBelowThreshold;
 
-//(15)----------------------------------------------
+//(15)------------------------------------------------
 
 const findIndexOfNumber = function(numbers,givenNumber){
   for(let number=0;number<numbers.length;number++){
@@ -166,14 +165,14 @@ const findIndexOfNumber = function(numbers,givenNumber){
 }
 exports.findIndexOfNumber = findIndexOfNumber;
 
-//(16)----------------------------------------------
+//(16)------------------------------------------------
 
 const reverseArray = function(numbers){
   return numbers.reverse();
 }
 exports.reverseArray = reverseArray;
 
-//(17)----------------------------------------------
+//(17)------------------------------------------------
 
 const isAscending = function(numbers){
   for(let number=0;number<numbers.length;number++){
@@ -185,7 +184,7 @@ const isAscending = function(numbers){
 }
 exports.isAscending = isAscending;
 
-//(18)----------------------------------------------
+//(18)-------------------------------------------------
 
 const isDescending = function(numbers){
   for(let number=0;number<numbers.length;number++){
@@ -197,7 +196,7 @@ const isDescending = function(numbers){
 }
 exports.isDescending = isDescending;
 
-//(19)----------------------------------------------
+//(19)------------------------------------------------
 
 const extractDigits = function(number){
   let result = number.toString().split("");
@@ -205,7 +204,7 @@ const extractDigits = function(number){
 }
 exports.extractDigits = extractDigits;
 
-//(20)----------------------------------------------
+//(20)------------------------------------------------
 
 const removeDuplicate = function(numbers){
   let uniqueElements = [];
@@ -219,7 +218,7 @@ const removeDuplicate = function(numbers){
 }
 exports.removeDuplicate = removeDuplicate;
 
-//(21)----------------------------------------------
+//(21)------------------------------------------------
 
 const createUnionOfArrays = function(numbers1,numbers2){
   combineArrays = numbers1.concat(numbers2)
@@ -227,7 +226,7 @@ const createUnionOfArrays = function(numbers1,numbers2){
 }
 exports.createUnionOfArrays = createUnionOfArrays;
 
-//(22)----------------------------------------------
+//(22)------------------------------------------------
 
 const createIntersectOfArrays = function(numbers1,numbers2){
   let intersectedArray = [];
@@ -240,7 +239,7 @@ const createIntersectOfArrays = function(numbers1,numbers2){
 }
 exports.createIntersectOfArrays = createIntersectOfArrays;
 
-//(23)----------------------------------------------
+//(23)-----------------------------------------------
 
 const findDifference = function(numbers1,numbers2){
   let uniqueElement = [];
@@ -253,7 +252,7 @@ const findDifference = function(numbers1,numbers2){
 }
 exports.findDifference = findDifference;
 
-//(24)----------------------------------------------
+//(24)-----------------------------------------------
 
 const isSubset = function(mainSet,subSet){
   for(let number of subSet){
@@ -265,7 +264,7 @@ const isSubset = function(mainSet,subSet){
 }
 exports.isSubset = isSubset;
 
-//(25)----------------------------------------------
+//(25)-----------------------------------------------
 
 const generateZip = function(numbers1,numbers2){
   let zippedOutput = [];
@@ -278,7 +277,7 @@ const generateZip = function(numbers1,numbers2){
 }
 exports.generateZip = generateZip;
 
-//(26)----------------------------------------------
+//(26)-----------------------------------------------
 
 const rotateArray=function(numbers,givenNumber){
   let rotatedResult=[];
@@ -292,7 +291,7 @@ const rotateArray=function(numbers,givenNumber){
 } 
 exports.rotateArray = rotateArray;
 
-//(27)----------------------------------------------
+//(27)-----------------------------------------------
 
 const createPartition = function(numbers,givenNumber){
   let outputArray = [];
@@ -310,4 +309,4 @@ const createPartition = function(numbers,givenNumber){
 }
 exports.createPartition = createPartition;
 
-//----------------------------------------------
+//---------------------------------------------------
