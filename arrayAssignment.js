@@ -41,14 +41,16 @@ exports.reverseNumbers = reverseNumbers;
 
 //(5)-----------------------------------------------
 
-const filterEverySecondNum = function(numbers){
-  let filteredNums = "";
-  let delimiter = "";
-  for(let number=0;number<numbers.length;number+=2){
-    filteredNums += delimiter + numbers[number];
-    delimiter = ",";
+const filterSecondElement = function(state,element){
+  let {index , elements} = state;
+  if (index%2 == 0){
+    elements = elements.concat(element);
   }
-  return filteredNums;
+  return {index : index+1 , elements : elements};
+} 
+const filterEverySecondNum = function(numbers){
+  return outputArray = numbers.reduce(filterSecondElement,
+    {index:0, elements:[]}).elements;
 }
 exports.filterEverySecondNum = filterEverySecondNum;
 

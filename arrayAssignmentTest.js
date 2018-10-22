@@ -119,13 +119,16 @@ assert.deepEqual(reverseNumbers([1,2,3,4]),"4,3,2,1");
 
 let filterEverySecondNum = lib.filterEverySecondNum;
 
-assert.deepEqual(filterEverySecondNum([1]),"1");
-assert.deepEqual(filterEverySecondNum([1,2]),"1");
-assert.deepEqual(filterEverySecondNum([1,2,3]),"1,3");
-assert.deepEqual(filterEverySecondNum([1,2,3,4]),"1,3");
-assert.deepEqual(filterEverySecondNum([2,4,6]),"2,6");
-assert.deepEqual(filterEverySecondNum([2,4]),"2");
-assert.deepEqual(filterEverySecondNum([2]),"2");
+// one element
+assert.deepEqual(filterEverySecondNum([1]),[1]);
+assert.deepEqual(filterEverySecondNum([27]),[27]);
+
+// two or more elements
+assert.deepEqual(filterEverySecondNum([1,2]),[1]);
+assert.deepEqual(filterEverySecondNum([2,4]),[2]);
+assert.deepEqual(filterEverySecondNum([1,2,3]),[1,3]);
+assert.deepEqual(filterEverySecondNum([2,4,6]),[2,6]);
+assert.deepEqual(filterEverySecondNum([1,2,3,4]),[1,3]);
 //------------------------------------------------
 
 let createReverseFibo = lib.createReverseFibo;
