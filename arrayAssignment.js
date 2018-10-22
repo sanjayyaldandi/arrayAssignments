@@ -155,12 +155,10 @@ exports.countBelowThreshold = countBelowThreshold;
 
 //(15)----------------------------------------------
 
-const findIndexOfNumber = function(numbers,givenNumber){
-  for(let number=0;number<numbers.length;number++){
-    if(numbers[number] == givenNumber){
-      return number;
-    }
-  }
+const findIndexOfNumber = function(numbers,index){
+  return indexOfNumber = numbers.findIndex(function(number){
+    return number == index;
+  });
 }
 exports.findIndexOfNumber = findIndexOfNumber;
 
