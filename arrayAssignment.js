@@ -2,53 +2,41 @@ const isEven = function(number){
   return (number % 2 == 0);
 }
 
+//-----------------------------------------------
+
+const isOdd = function(number){
+  return (number % 2 != 0);
+}
+
 //(1)---------------------------------------------
 
 const filterOddNumbers = function(numbers){
-  let oddNumbers = [];
-  for(let number of numbers){
-    if( !isEven(number) ){
-      oddNumbers.push(number);
-    }
-  }
-  return oddNumbers;
+  return numbers.filter(isOdd);
 }
 exports.filterOddNumbers = filterOddNumbers;
 
 //(2)------------------------------------------------
 
 const filterEvenNumbers = function(numbers){
-  let evenNumbers = [];
-  for(let number of numbers){
-    if( isEven(number) ){
-      evenNumbers.push(number);
-    }
-  }
-  return evenNumbers;
+  return numbers.filter(isEven);
 }
 exports.filterEvenNumbers = filterEvenNumbers;
 
 //(3)------------------------------------------------
 
-const sum = function(numbers){
-  let answer = 0;
-  for(let number of numbers){
-    answer += number;
-  }
-  return answer;
+const sum = function(num1,num2){
+  return num1+num2;
 }
-exports.sum = sum;
+
+const sumOfElements = function(numbers){
+  return numbers.reduce(sum);
+}
+exports.sumOfElements = sumOfElements;
 
 //(4)----------------------------------------------
 
 const reverseNumbers = function(numbers){
-  let reversedResult = "";
-  let delimiter = "";
-  for(let number=numbers.length-1;number>=0;number--){
-    reversedResult += delimiter + numbers[number];
-    delimiter = ",";
-  }
-  return reversedResult;
+  return numbers.reverse().join();
 }
 exports.reverseNumbers = reverseNumbers;
 
@@ -85,112 +73,92 @@ exports.createReverseFibo = createReverseFibo;
 
 //(7)----------------------------------------------
 
+const findGreatest = function(num1,num2){
+  return Math.max(num1,num2);
+}
+
 const findGreatestNum = function(numbers){
-  let greatestNumber = numbers[0];
-  for(let number of numbers){
-    if(greatestNumber < number){
-      greatestNumber = number;
-    }
-  }
-  return greatestNumber;
+  return numbers.reduce(findGreatest);
 }
 exports.findGreatestNum = findGreatestNum;
 
 //(8)----------------------------------------------
 
+const findLowest = function(num1,num2){
+  return Math.min(num1,num2);
+}
 const findLowestNum = function(numbers){
-  let lowestNumber = numbers[0];
-  for(let number of numbers) {
-    if(lowestNumber > number){
-      lowestNumber = number;
-    }
-  }
-  return lowestNumber;
+  return numbers.reduce(findLowest);
 }
 exports.findLowestNum = findLowestNum;
 
 //(9)----------------------------------------------
 
 const calculateAverage = function(numbers){
-  let totalSum = 0;
-  let averageOfNum = null;
-  if(numbers.length > 0) {
-    for(let number of numbers){
-      totalSum += number;
-    }
-    averageOfNum = totalSum/numbers.length;
-  }
-  return averageOfNum;
+  answer = numbers.reduce(sum);
+  return answer/numbers.length;
 }
 exports.calculateAverage = calculateAverage;
 
 //(10)----------------------------------------------
 
+const findLength = function(word){
+  return word.length;
+}
+
 const mapLengthOfWords = function(words){
-  let lengthOfWords = [];
-  for(let word of words){
-    lengthOfWords.push(word.length);
-  }
-  return lengthOfWords;
+  return words.map(findLength);
 }
 exports.mapLengthOfWords = mapLengthOfWords;
 
 //(11)----------------------------------------------
 
 const countOddNumbers = function(numbers){
-  let count = 0;
-  for(let number of numbers){
-    if( !isEven(number) ){
-      count++;
-    }
-  }
-  return count;
+  return filterOddNumbers(numbers).length;
 }
 exports.countOddNumbers = countOddNumbers;
 
 //(12)----------------------------------------------
 
 const countEvenNumbers = function(numbers){
-  let count = 0;
-  for(let number of numbers){
-    if( isEven(number) ){
-      count++;
-    }
-  }
-  return count;
+  return filterEvenNumbers(numbers).length;
 }
 exports.countEvenNumbers = countEvenNumbers;
 
 //(13)----------------------------------------------
 
-const countAboveThreshold = function(numbers,givenNumber){
-  let count = 0;
-  for(let number of numbers){
-    if(number > givenNumber){
-      count++;
-    }
+const findAboveThreshold = function(givenNumber){
+  let greater = function(number){
+    return number > givenNumber;
   }
-  return count;
+  return greater;
+}
+
+const countAboveThreshold = function(numbers,givenNumber){
+  let threshold = findAboveThreshold(givenNumber);
+  return numbers.filter(threshold).length;
 }
 exports.countAboveThreshold = countAboveThreshold;
 
 //(14)----------------------------------------------
 
-const countBelowThreshold = function(numbers,givenNumber){
-  let count = 0;
-  for(let number of numbers){
-    if(number < givenNumber){
-      count++;
-    }
+const findBelowThreshold = function(givenNumber){
+  let lessThan = function(number){
+    return number < givenNumber;
   }
-  return count;
+  return lessThan;
+}
+
+const countBelowThreshold = function(numbers,givenNumber){
+  let threshold = findBelowThreshold(givenNumber);
+  return numbers.filter(threshold).length;
 }
 exports.countBelowThreshold = countBelowThreshold;
 
 //(15)----------------------------------------------
 
 const findIndexOfNumber = function(numbers,givenNumber){
-  for(let number=0;number<numbers.length-1;number++){
+  for(let number=0;number<numbers.length;number++){
     if(numbers[number] == givenNumber){
       return number;
     }
@@ -201,11 +169,7 @@ exports.findIndexOfNumber = findIndexOfNumber;
 //(16)----------------------------------------------
 
 const reverseArray = function(numbers){
-  let reversedResult = [];
-  for(let number=numbers.length-1;number>=0;number--){
-    reversedResult.push(numbers[number]);
-  }
-  return reversedResult;
+  return numbers.reverse();
 }
 exports.reverseArray = reverseArray;
 
@@ -236,12 +200,8 @@ exports.isDescending = isDescending;
 //(19)----------------------------------------------
 
 const extractDigits = function(number){
-  let strinfOfNum = ""+number;
-  let extractedDigits = [];
-  for(let digit of strinfOfNum){
-    extractedDigits.push(+digit);
-  }
-  return extractedDigits;
+  let result = number.toString().split("");
+  return result.map(number => +number);
 }
 exports.extractDigits = extractDigits;
 
@@ -262,14 +222,8 @@ exports.removeDuplicate = removeDuplicate;
 //(21)----------------------------------------------
 
 const createUnionOfArrays = function(numbers1,numbers2){
-  let unionArray = [];
-  unionArray.push(numbers1[0]);
-  for(let number=0;number<numbers1.length;number++){
-    if(!unionArray.includes(numbers1[number]) && !unionArray.includes(numbers2[number])){
-      unionArray.push(number);
-    }
-  }
-  return unionArray;
+  combineArrays = numbers1.concat(numbers2)
+  return removeDuplicate(combineArrays);
 }
 exports.createUnionOfArrays = createUnionOfArrays;
 
