@@ -9,6 +9,7 @@ const isOdd = function(number){
 }
 
 //(1)-----------------------------------------------
+
 const filterOddNumbers = function(numbers){
   return numbers.filter(isOdd);
 }
@@ -41,16 +42,16 @@ exports.reverseNumbers = reverseNumbers;
 
 //(5)-----------------------------------------------
 
-const filterAlternateNum = function(state,element) {
-  let {elements,index} = state;
+const filterAlternateNum = function(state,element){
+  let { elements,index } = state;
   if(index % 2 == 0){
     elements.push(element);
   }
-  return {elements : elements , index : index+1};
+  return { elements : elements , index : index+1 };
 }
 
 const filterEverySecondNum = function(numbers){
-  return numbers.reduce(filterAlternateNum,{index : 0, elements : []}).elements;
+  return numbers.reduce(filterAlternateNum,{ index : 0, elements : [] }).elements;
 }
 exports.filterEverySecondNum = filterEverySecondNum;
 
@@ -210,9 +211,13 @@ exports.isDescending = isDescending;
 
 //(19)----------------------------------------------
 
+const changeTypeOfElement = function(number){
+  return +number;
+}
+
 const extractDigits = function(number){
   let result = number.toString().split("");
-  return result.map(number => +number);
+  return result.map(changeTypeOfElement);
 }
 exports.extractDigits = extractDigits;
 
@@ -240,14 +245,14 @@ exports.createUnionOfArrays = createUnionOfArrays;
 
 //(22)----------------------------------------------
 
+
+
 const createIntersectOfArrays = function(numbers1,numbers2){
-  let intersectedArray = [];
-  for(let number of numbers1){
-    if(numbers1.includes(number) && numbers2.includes(number)){
-      intersectedArray.push(number)
-    }
+  const isInclude = function(element){
+    return numbers2.includes(element);
   }
-  return intersectedArray;
+  let outputArray =  numbers1.filter(isInclude);
+  return outputArray = removeDuplicate(outputArray);
 }
 exports.createIntersectOfArrays = createIntersectOfArrays;
 
