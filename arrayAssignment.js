@@ -265,13 +265,15 @@ exports.findDifference = findDifference;
 
 //(24)----------------------------------------------
 
-const isSubset = function(mainSet,subSet){
-  for(let number of subSet){
-    if(!mainSet.includes(number)){
-      return false;
-    }
+const checkSubset = function(mainSet) {
+  return function(element) {
+    return mainSet.includes(element);
   }
-  return true;
+}
+
+const isSubset = function(mainSet, subset) {
+  let checkList = checkSubset(mainSet);
+  return subset.every(checkList);
 }
 exports.isSubset = isSubset;
 
