@@ -157,10 +157,11 @@ exports.countBelowThreshold = countBelowThreshold;
 
 //(15)----------------------------------------------
 
-const findIndexOfNumber = function(numbers,index){
-  return indexOfNumber = numbers.findIndex(function(number){
-    return number == index;
-  });
+const findIndexOfNumber = function(numbers,numberToMatch){
+  const checkIndex = function(number){
+    return number == numberToMatch;
+  }
+  return indexOfNumber = numbers.findIndex(checkIndex);
 }
 exports.findIndexOfNumber = findIndexOfNumber;
 
@@ -174,7 +175,7 @@ exports.reverseArray = reverseArray;
 //(17)----------------------------------------------
 
 const isGreater = function(state, currentElement){
-  let {resultArray, previousNumber}=state;
+  let {resultArray, previousNumber} = state;
   state.resultArray.push(previousNumber <= currentElement);
   state.previousNumber = currentElement;
   return state;
