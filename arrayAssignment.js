@@ -245,8 +245,6 @@ exports.createUnionOfArrays = createUnionOfArrays;
 
 //(22)----------------------------------------------
 
-
-
 const createIntersectOfArrays = function(numbers1,numbers2){
   const isInclude = function(element){
     return numbers2.includes(element);
@@ -305,20 +303,22 @@ exports.rotateArray = rotateArray;
 
 //(27)----------------------------------------------
 
-const createPartition = function (inputArray,limit){
-  const partitioner = function(state,element){
-    let { firstPart , secondPart } = state;
-    if ( element > limit){
-      secondPart.push(element);
-      return { firstPart , secondPart };
+const filterElements = function(numbers, partitionNumber){
+   return function(array, element){
+    if(element <= partitionNumber){
+      array[0].push(element);
+      return array;
     }
-    firstPart.push(element);
-    return { firstPart , secondPart };
+    array[1].push(element);
+    return array;
   }
-
-  let  objectOfArrays = inputArray.reduce(partitioner,{ firstPart : [], secondPart : [] });
-  return [objectOfArrays.firstPart , objectOfArrays.secondPart];
 }
+
+const createPartition = function(numbers, partitionNumber) {
+  let filteredElements = filterElements(numbers, partitionNumber);
+  return numbers.reduce(filteredElements, [[],[]]);
+}
+
 exports.createPartition = createPartition;
 
 //--------------------------------------------------
