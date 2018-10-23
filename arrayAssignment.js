@@ -305,19 +305,19 @@ exports.rotateArray = rotateArray;
 
 //(27)----------------------------------------------
 
-const createPartition = function(numbers,givenNumber){
-  let outputArray = [];
-  let lessThanNum = [];
-  let greaterThanNum = [];
-  for(let number of numbers){
-    if(givenNumber >= number){
-      lessThanNum.push(number);
-    } else {
-      greaterThanNum.push(number);
+const createPartition = function (inputArray,limit){
+  const partitioner = function(state,element){
+    let { firstPart , secondPart } = state;
+    if ( element > limit){
+      secondPart.push(element);
+      return { firstPart , secondPart };
     }
+    firstPart.push(element);
+    return { firstPart , secondPart };
   }
-  outputArray.push(lessThanNum,greaterThanNum);
-  return outputArray;
+
+  let  objectOfArrays = inputArray.reduce(partitioner,{ firstPart : [], secondPart : [] });
+  return [objectOfArrays.firstPart , objectOfArrays.secondPart];
 }
 exports.createPartition = createPartition;
 
