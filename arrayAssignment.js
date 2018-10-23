@@ -41,16 +41,16 @@ exports.reverseNumbers = reverseNumbers;
 
 //(5)-----------------------------------------------
 
-const filterSecondElement = function(state,element){
-  let {index , elements} = state;
-  if (index%2 == 0){
-    elements = elements.concat(element);
+const filterAlternateNum = function(state,element) {
+  let {elements,index} = state;
+  if(index % 2 == 0){
+    elements.push(element);
   }
-  return {index : index+1 , elements : elements};
-} 
+  return {elements : elements , index : index+1};
+}
+
 const filterEverySecondNum = function(numbers){
-  return outputArray = numbers.reduce(filterSecondElement,
-    {index:0, elements:[]}).elements;
+  return numbers.reduce(filterAlternateNum,{index : 0, elements : []}).elements;
 }
 exports.filterEverySecondNum = filterEverySecondNum;
 
@@ -73,22 +73,22 @@ exports.createReverseFibo = createReverseFibo;
 
 //(7)-----------------------------------------------
 
-const isGreater = function(num1,num2){
+const findGreater = function(num1,num2){
   return Math.max(num1,num2);
 }
 
 const findGreatestNum = function(numbers){
-  return numbers.reduce(isGreater);
+  return numbers.reduce(findGreater);
 }
 exports.findGreatestNum = findGreatestNum;
 
 //(8)-----------------------------------------------
 
-const isLower = function(num1,num2){
+const findLower = function(num1,num2){
   return Math.min(num1,num2);
 }
 const findLowestNum = function(numbers){
-  return numbers.reduce(isLower);
+  return numbers.reduce(findLower);
 }
 exports.findLowestNum = findLowestNum;
 
@@ -173,26 +173,38 @@ exports.reverseArray = reverseArray;
 
 //(17)----------------------------------------------
 
-const isAscending = function(numbers){
-  for(let number=0;number<numbers.length;number++){
-    if(numbers[number] > numbers[number+1]){
-      return false;
-    }
-  }
-  return true;
+const isGreater = function(state, currentElement){
+  let {resultArray, previousNumber}=state;
+  state.resultArray.push(previousNumber <= currentElement);
+  state.previousNumber = currentElement;
+  return state;
 }
+
+const isTrue = function(result){
+  return result == true;
+}
+
+const isAscending = function (numbers){
+  let results = numbers.reduce(isGreater, {resultArray : [], previousNumber : numbers[0]}).resultArray;
+  return results.every(isTrue);
+}
+
 exports.isAscending = isAscending;
 
 //(18)----------------------------------------------
 
-const isDescending = function(numbers){
-  for(let number=0;number<numbers.length;number++){
-    if(numbers[number] < numbers[number+1]){
-      return false;
-    }
-  }
-  return true;
+const isLower = function(state, currentElement){
+  let {resultArray, previousNumber}=state;
+  state.resultArray.push(previousNumber >= currentElement);
+  state.previousNumber = currentElement;
+  return state;
 }
+
+const isDescending = function (numbers){
+  let results = numbers.reduce(isLower, {resultArray : [], previousNumber : numbers[0]}).resultArray;
+  return results.every(isTrue);
+}
+
 exports.isDescending = isDescending;
 
 //(19)----------------------------------------------
