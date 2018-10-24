@@ -43,15 +43,15 @@ exports.reverseNumbers = reverseNumbers;
 //(5)-----------------------------------------------
 
 const filterAlternateNum = function(state,element){
-  let { elements,index } = state;
+  let {elements,index} = state;
   if(index % 2 == 0){
     elements.push(element);
   }
-  return { elements : elements , index : index+1 };
+  return {elements:elements,index:index+1};
 }
 
 const filterEverySecondNum = function(numbers){
-  return numbers.reduce(filterAlternateNum,{ index : 0, elements : [] }).elements;
+  return numbers.reduce(filterAlternateNum,{index:0,elements:[]}).elements;
 }
 exports.filterEverySecondNum = filterEverySecondNum;
 
@@ -196,7 +196,7 @@ exports.isAscending = isAscending;
 //(18)----------------------------------------------
 
 const isLower = function(state, currentElement){
-  let {resultArray, previousNumber}=state;
+  let {resultArray, previousNumber} = state;
   state.resultArray.push(previousNumber >= currentElement);
   state.previousNumber = currentElement;
   return state;
@@ -223,15 +223,15 @@ exports.extractDigits = extractDigits;
 
 //(20)----------------------------------------------
 
-const removeDuplicate = function(numbers){
-  let uniqueElements = [];
-  uniqueElements.push(numbers[0]);
-  for(let number of numbers){
-    if(!uniqueElements.includes(number)){
-      uniqueElements.push(number);
-    }
+const isPresent = function(filteredNumbers,number){
+  if(!filteredNumbers.includes(number)){
+    filteredNumbers.push(number);
   }
-  return uniqueElements;
+  return filteredNumbers; 
+}
+
+const removeDuplicate = function(numbers){
+  return numbers.reduce(isPresent,[]);
 }
 exports.removeDuplicate = removeDuplicate;
 
@@ -303,8 +303,8 @@ exports.rotateArray = rotateArray;
 
 //(27)----------------------------------------------
 
-const filterElements = function(numbers, partitionNumber){
-   return function(array, element){
+const filterElements = function(numbers,partitionNumber){
+   return function(array,element){
     if(element <= partitionNumber){
       array[0].push(element);
       return array;
@@ -314,9 +314,9 @@ const filterElements = function(numbers, partitionNumber){
   }
 }
 
-const createPartition = function(numbers, partitionNumber) {
-  let filteredElements = filterElements(numbers, partitionNumber);
-  return numbers.reduce(filteredElements, [[],[]]);
+const createPartition = function(numbers,partitionNumber) {
+  let filteredElements = filterElements(numbers,partitionNumber);
+  return numbers.reduce(filteredElements,[[],[]]);
 }
 
 exports.createPartition = createPartition;
