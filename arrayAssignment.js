@@ -56,19 +56,18 @@ const filterEverySecondNum = function(numbers){
 exports.filterEverySecondNum = filterEverySecondNum;
 
 //(6)-----------------------------------------------
-
-const createReverseFibo = function(givenNumber){
-  let reversedFiboSeries = [];
-  let num1 = -1;
+const createReverseFibo = function(number){
+  let num1 = 0;
   let num2 = 1;
   let sum = 0;
-  for(let number=0;number<givenNumber;number++){
-    sum = num1 + num2;
+  let fiboSeries = [];
+  for(let index=0 ; index < number ; index++) {
+    fiboSeries[index] = num1;
+    sum = num1 + num2 ;
     num1 = num2;
     num2 = sum;
-    reversedFiboSeries.unshift(sum);
   }
-  return reversedFiboSeries;
+  return reverseArray(fiboSeries);
 }
 exports.createReverseFibo = createReverseFibo;
 
@@ -88,6 +87,7 @@ exports.findGreatestNum = findGreatestNum;
 const findLower = function(num1,num2){
   return Math.min(num1,num2);
 }
+
 const findLowestNum = function(numbers){
   return numbers.reduce(findLower);
 }
@@ -129,7 +129,7 @@ exports.countEvenNumbers = countEvenNumbers;
 //(13)----------------------------------------------
 
 const findAboveThreshold = function(limit){
-  let isGreater = function(number){
+  const isGreater = function(number){
     return number > limit;
   }
   return isGreater;
@@ -144,7 +144,7 @@ exports.countAboveThreshold = countAboveThreshold;
 //(14)----------------------------------------------
 
 const findBelowThreshold = function(limit){
-  let isLower = function(number){
+  const isLower = function(number){
     return number < limit;
   }
   return isLower;

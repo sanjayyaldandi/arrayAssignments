@@ -133,11 +133,11 @@ assert.deepEqual(filterEverySecondNum([1,2,3,4]),[1,3]);
 
 let createReverseFibo = lib.createReverseFibo;
 
-assert.deepEqual(createReverseFibo(5),[3,2,1,1,0]);
-assert.deepEqual(createReverseFibo(8),[13,8,5,3,2,1,1,0]);
+assert.deepEqual(createReverseFibo(1),[0]);
 assert.deepEqual(createReverseFibo(2),[1,0]);
+assert.deepEqual(createReverseFibo(5),[3,2,1,1,0]);
 assert.deepEqual(createReverseFibo(6),[5,3,2,1,1,0]);
-
+assert.deepEqual(createReverseFibo(8),[13,8,5,3,2,1,1,0]);
 //------------------------------------------------
 
 let findGreatestNum = lib.findGreatestNum;
