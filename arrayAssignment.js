@@ -286,14 +286,14 @@ exports.isSubset = isSubset;
 
 //(25)----------------------------------------------
 
-const generateZip = function(numbers1,numbers2){
-  let zippedOutput = [];
-  length = Math.min(numbers1.length,numbers2.length)
-
-  for(let number=0;number<length;number++){
-    zippedOutput.push([numbers1[number],numbers2[number]]);
+createZip = function(numbers1){
+  return function(zippedArray,number){
+    zippedArray.push([numbers1.shift(),number]);
+    return zippedArray;
   }
-  return zippedOutput;
+}
+const generateZip = function(numbers1,numbers2) {
+  return numbers2.reduce(createZip(numbers1),[]);
 }
 exports.generateZip = generateZip;
 
