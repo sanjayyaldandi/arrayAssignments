@@ -133,37 +133,37 @@ assert.deepEqual(filterEverySecondNum([1,2,3,4]),[1,3]);
 
 let createReverseFibo = lib.createReverseFibo;
 
-assert.deepEqual(createReverseFibo(5),[3,2,1,1,0])
-assert.deepEqual(createReverseFibo(8),[13,8,5,3,2,1,1,0])
-assert.deepEqual(createReverseFibo(2),[1,0])
-assert.deepEqual(createReverseFibo(6),[5,3,2,1,1,0])
+assert.deepEqual(createReverseFibo(5),[3,2,1,1,0]);
+assert.deepEqual(createReverseFibo(8),[13,8,5,3,2,1,1,0]);
+assert.deepEqual(createReverseFibo(2),[1,0]);
+assert.deepEqual(createReverseFibo(6),[5,3,2,1,1,0]);
 
 //------------------------------------------------
 
 let findGreatestNum = lib.findGreatestNum;
 
 // one element
-assert.deepEqual(findGreatestNum([1]),1)
+assert.deepEqual(findGreatestNum([1]),1);
 
 //two or more elements
-assert.deepEqual(findGreatestNum([1,6]),6)
-assert.deepEqual(findGreatestNum([1,3,26]),26)
-assert.deepEqual(findGreatestNum([1,26,3,5]),26)
+assert.deepEqual(findGreatestNum([1,6]),6);
+assert.deepEqual(findGreatestNum([1,3,26]),26);
+assert.deepEqual(findGreatestNum([1,26,3,5]),26);
 
 //------------------------------------------------
 
 let findLowestNum = lib.findLowestNum;
 
 // one element
-assert.deepEqual(findLowestNum([1]),1)
+assert.deepEqual(findLowestNum([1]),1);
 
 // two or more elements
-assert.deepEqual(findLowestNum([3,2]),2)
-assert.deepEqual(findLowestNum([5,3,4]),3)
+assert.deepEqual(findLowestNum([3,2]),2);
+assert.deepEqual(findLowestNum([5,3,4]),3);
 
 // negative elements
-assert.deepEqual(findLowestNum([-1,-2]),-2)
-assert.deepEqual(findLowestNum([-3,-1,-2]),-3)
+assert.deepEqual(findLowestNum([-1,-2]),-2);
+assert.deepEqual(findLowestNum([-3,-1,-2]),-3);
 //------------------------------------------------
 
 let calculateAverage = lib.calculateAverage;
@@ -413,7 +413,7 @@ createUnionOfArrays = lib.createUnionOfArrays;
 // one element
 assert.deepEqual(createUnionOfArrays([1],[1]),[1]);
 assert.deepEqual(createUnionOfArrays([1],[2]),[1,2]);
-//assert.deepEqual(createUnionOfArrays([21],[17]),[21,17]);
+assert.deepEqual(createUnionOfArrays([21],[17]),[21,17]);
 
 // two or more elements
 assert.deepEqual(createUnionOfArrays([1,2],[2,3]),[1,2,3]);
@@ -441,17 +441,18 @@ assert.deepEqual(createIntersectOfArrays([1,-76,-23],[-23,-76,4]),[-76,-23]);
 findDifference = lib.findDifference;
 
 // one element
-assert.deepEqual(findDifference([1],[3]),[1])
+assert.deepEqual(findDifference([1],[3]),[1]);
 
 // two or more elements
-assert.deepEqual(findDifference([1,2],[1,2]),[])
-assert.deepEqual(findDifference([1,2],[1,3]),[2])
-assert.deepEqual(findDifference([1,2],[2,3]),[1])
-assert.deepEqual(findDifference([1,2,3],[1,2,3]),[])
-assert.deepEqual(findDifference([1,2,3],[3,1,2]),[])
-assert.deepEqual(findDifference([4,2,3],[1,3,2]),[4])
-assert.deepEqual(findDifference([8,7,4,6],[2,3,6,7]),[8,4])
-assert.deepEqual(findDifference([1,2,3,4,5],[1,3,5,7]),[2,4])
+assert.deepEqual(findDifference([1,2],[1,2]),[]);
+assert.deepEqual(findDifference([1,2],[1,3]),[2]);
+assert.deepEqual(findDifference([1,2],[2,3]),[1]);
+assert.deepEqual(findDifference([1,2,3],[1,2,3]),[]);
+assert.deepEqual(findDifference([1,2,3],[3,1,2]),[]);
+assert.deepEqual(findDifference([4,2,3],[1,3,2]),[4]);
+assert.deepEqual(findDifference([8,7,4,6],[2,3,6,7]),[8,4]);
+assert.deepEqual(findDifference([1,2,3,4,5],[1,3,5,7]),[2,4]);
+assert.deepEqual(findDifference([5,7,3,6,4],[1,3,5,7]),[6,4]);
 
 //------------------------------------------------
 
@@ -485,25 +486,25 @@ assert.deepEqual(generateZip([1],[2]),[[1,2]]);
 assert.deepEqual(generateZip([1,2],[3,4]),[[1,3],[2,4]]);
 assert.deepEqual(generateZip([1,3],[2,4]),[[1,2],[3,4]]);
 assert.deepEqual(generateZip([1,3],[2]),[[1,2]]);
-assert.deepEqual(generateZip([1,2,3],[2,4,6]),[[1,2],[2,4],[3,6]])
-assert.deepEqual(generateZip([1,2,3],[2,4]),[[1,2],[2,4]])
-assert.deepEqual(generateZip([1,2,3,4],[2,4]),[[1,2],[2,4]])
-assert.deepEqual(generateZip([1,2,3,4],[2,4,6]),[[1,2],[2,4],[3,6]])
+assert.deepEqual(generateZip([1,2,3],[2,4,6]),[[1,2],[2,4],[3,6]]);
+assert.deepEqual(generateZip([1,2,3],[2,4]),[[1,2],[2,4]]);
+assert.deepEqual(generateZip([1,2,3,4],[2,4]),[[1,2],[2,4]]);
+assert.deepEqual(generateZip([1,2,3,4],[2,4,6]),[[1,2],[2,4],[3,6]]);
 
 //------------------------------------------------
 
 rotateArray = lib.rotateArray;
 
 // one element
-assert.deepEqual(rotateArray([1],1),[1])
+assert.deepEqual(rotateArray([1],1),[1]);
 
 // two or more elments
-assert.deepEqual(rotateArray([1,2],1),[2,1])
-assert.deepEqual(rotateArray([1,2],2),[1,2])
-assert.deepEqual(rotateArray([1,2,3],2),[3,1,2])
-assert.deepEqual(rotateArray([1,2,3],1),[2,3,1])
-assert.deepEqual(rotateArray([1,2,3,4,5],2),[3,4,5,1,2])
-assert.deepEqual(rotateArray([1,2,3,4,5],4),[5,1,2,3,4])
+assert.deepEqual(rotateArray([1,2],1),[2,1]);
+assert.deepEqual(rotateArray([1,2],2),[1,2]);
+assert.deepEqual(rotateArray([1,2,3],2),[3,1,2]);
+assert.deepEqual(rotateArray([1,2,3],1),[2,3,1]);
+assert.deepEqual(rotateArray([1,2,3,4,5],2),[3,4,5,1,2]);
+assert.deepEqual(rotateArray([1,2,3,4,5],4),[5,1,2,3,4]);
 
 //------------------------------------------------
 

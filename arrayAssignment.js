@@ -256,22 +256,25 @@ exports.createIntersectOfArrays = createIntersectOfArrays;
 
 //(23)----------------------------------------------
 
-const findDifference = function(numbers1,numbers2){
-  let uniqueElement = [];
-  for(let number of numbers1){
-    if(!numbers2.includes(number) && !uniqueElement.includes(number)){
-      uniqueElement.push(number);
-    }
+const checkDifference = function(set){
+  const isContain = function(number){
+    return !set.includes(number);
   }
-  return uniqueElement;
+  return isContain
+}
+
+const findDifference  =  function(numbers1,numbers2){
+  let checkDiff = checkDifference(numbers2);
+  let differenceList = numbers1.filter(checkDiff);
+  return removeDuplicate(differenceList);
 }
 exports.findDifference = findDifference;
 
 //(24)----------------------------------------------
 
 const checkSubset = function(mainSet) {
-  return function(element) {
-    return mainSet.includes(element);
+  return function(number) {
+    return mainSet.includes(number);
   }
 }
 
